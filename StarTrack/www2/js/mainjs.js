@@ -52,7 +52,7 @@ function getVerifCode(){
     verifyBtn02();
 }
 
-//Signupdemo value fixes: 
+//Signupdemo value fixes:
 function SignupStudent() { 
     signupUserType = "Student";
 }

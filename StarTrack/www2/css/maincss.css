@@ -1,5 +1,6 @@
 body {
     padding-top: 60px; /* Fixes navbar covering content at top */
+
   }
 
 .navbar-collapse.collapse {
@@ -27,7 +28,12 @@ body {
     flex:1 1 auto;
 }
 
-.eventListingBorders { 
+#navMain ul li { 
+  width: 32%;
+  text-align: center;
+}
+
+.eventListingBorders { /* borders on top and bottom of events that are loaded onto the event feed page (DIVs) */
     border-top-style: solid;
     border-right-style: none;
     border-bottom-style: solid;
@@ -38,4 +44,14 @@ body {
 
 .navEvent0 { 
     /* nothing goes here, this is a class for js */ 
+}
+
+.jumbotron img { /* this fixes the image centering on the profile page */
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.profileStats { 
+  text-align: center;
 }

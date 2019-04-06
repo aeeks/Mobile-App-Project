@@ -7,6 +7,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/mainjs.js"></script> 
         <script type="text/javascript" src="js/navigation.js"></script> 
+        <script type="text/javascript" src="js/NFC.js"></script> 
         <script type="text/javascript" src="cordova.js"></script> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>CheckInator 9001.2</title>
@@ -57,24 +58,34 @@
                     <div class="btn btn-default  btn-block" onclick="verifyBtn01()">Verify</div>
                     </div></div>
 
-        <div id="verify" class="container-fluid" style="display: none;"> <!--Profile Page / show badges and points here? -->
+        <div id="verify" class="container-fluid" style="display: none;"> <!--Verification code entry page -->
             <div id="verifyDIV">
                     <div class="form-group">
                         <label for="text">We sent a code to your email.  Enter it below to activate your account:</label>
                         <input type="text" class="form-control" id="checkVerifCode">
                     </div>
                     <div class="btn btn-default  btn-block" onclick=" getVerifCode()">Verify Account</div>
-                    </div>
+                    </div></div>
+
+        <div id="profile" class="navEvent0" style="display: none;"> <!--Profile Page / show badges and points here? -->
+                <div class="jumbotron">
+                    <img src="img/generic-profile-picture.png" class="img-circle img-responsive"><br /><br /> <!-- Profile Picture placeholder, we need to make this load dynamically tho-->
+                    <div class="row profileStats">
+                        <div class="col-xs-6">1,273 Points</div><!-- points display, student, placeholders, also need to be loaded from internet source for real thing -->
+                        <div class="col-xs-6">Student</div>
+                    </div> <br /> </div>                    
+        <div class="btn btn-default  btn-block">Edit Profile</div>
+        <div class="btn btn-default  btn-block">Change Password</div>
+        <div class="btn btn-default  btn-block">Log Out</div>
         </div>
 
-        <div id="profile" class="container-fluid navEvent0" style="display: none;"> <!--Profile Page / show badges and points here? -->
-        <h1>Profile page</h1>
-        </div>
-
-        <div id="feed" class="container-fluid navEvent0" style="display: none;"> <!--Event Feed Page, this is just an empty container to dump info into-->
+        <div id="feed" class="container-fluid navEvent0" style="display: none;"> <!--Event Feed Page, this is just an empty container to dump info into dynamically-->
         <div id="eventContainer" class="container-fluid"><div class="btn btn-default  btn-block" onclick="contentLoaderDemo()">Load demo content</div></div></div>
 
-        <div id="nfcCheckIn" class="container-fluid navEvent0" style="display: none;"> <!--NFC Page-->
-        <h1>NFC Check page</h1>
+        <div id="nfcCheckIn" class="container-fluid navEvent0" style="display: none;"> <!--NFC check-in Page-->
+        <h1>NFC Check page</h1><br />
+        <button onclick="checkEnabled()"class="btn btn-default  btn-block">Check if NFC enabled</button>
+        <button onclick="showSett()"class="btn btn-default  btn-block">Open device NFC settings</button>
         </div>
+        
 </body></html>
