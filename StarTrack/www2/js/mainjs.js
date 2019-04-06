@@ -1,6 +1,4 @@
 document.addEventListener("deviceready", onDeviceReady, false);
- var a; 
- var b;
 function onDeviceReady() {
     console.log("Device Ready");
     document.addEventListener("pause", onPause, false);
@@ -10,30 +8,57 @@ function onDeviceReady() {
 function onPause() {
     // Handle the pause event
 }
-
 function onResume() {
     // Handle the resume event
 }
-
 function onMenuKeyDown() {
     // Handle the menubutton event
 }
 
-function switcher(id) {  //standard page switcher
-    a = document.getElementsById(id)
-    a.style.display = 'none';
+//Non-cordova-specific code goes below: 
+//Vars
+var userEmail; 
+var userPasswd;
+var signupEmail;
+var signupPasswd;
+var signupUserType;
+var verifCode;
+var checkVerifCode;
 
-    b = document.getElementById('login'); //turn visibility on for this div
-    b.style.display = 'block';
+//Functions
+function contentLoaderDemo() { //Loading content into the events section automatically (could be from internet source)
+    document.getElementById("eventContainer").innerHTML = '<div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div>';
+    //Load this: <div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div>
 }
 
-function Xswitcher() { //special switcher, for showing the navbar as well as the pages after 
-    a = document.getElementById("login");
-    a.style.display = 'none';
+function getLogin() { 
+    userEmail = document.getElementById('userEmail');
+    userPasswd = document.getElementById('userPasswd');
+    console.log("Entered Email: " + userEmail.value + " Entered Password: " + userPasswd.value);
+    loginBtn();
+}
 
-    b = document.getElementById('feed'); 
-    b.style.display = 'block';
+function getSignup(){
+    signupEmail = document.getElementById('signupEmail');
+    signupPasswd = document.getElementById('signupPasswd');
+    console.log("Entered Email: " + signupEmail.value + " Entered Password: " + signupPasswd.value + "User Type: " + signupUserType);
+    signupBtn();
+}
 
-    c = document.getElementById('navMain'); 
-    c.style.display = 'block';
+function getVerifCode(){ 
+    verifCode = 1234; //this should be set to the value that the user needs to match in order to activate an account (from internet source or maybe could generate this in app, send to email, then have user confirm)
+    checkVerifCode = document.getElementById('checkVerifCode');
+    console.log("Entered Code: " + checkVerifCode.value);
+    verifyBtn02();
+}
+
+//Signupdemo value fixes: 
+function SignupStudent() { 
+    signupUserType = "Student";
+}
+function SignupFaculty() { 
+    signupUserType = "Faculty";
+}
+function SignupVisitor() { 
+    signupUserType = "Visitor";
 }
