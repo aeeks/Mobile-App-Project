@@ -1,0 +1,26 @@
+{
+  "cordova-plugin-geolocation": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-geolocation@^4.0.1"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-device": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-device@^2.0.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "phonegap-nfc": {
+    "source": {
+      "type": "registry",
+      "id": "phonegap-nfc@^1.0.3"
+    },
+    "is_top_level": true,
+    "variables": {}
+  }
+}

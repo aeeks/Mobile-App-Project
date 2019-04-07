@@ -1,0 +1,57 @@
+body {
+    padding-top: 60px; /* Fixes navbar covering content at top */
+
+  }
+
+.navbar-collapse.collapse {
+    display: block!important;
+  }
+  
+  .navbar-nav>li, .navbar-nav {
+    float: left !important;
+  }
+  
+  .navbar-nav.navbar-right:last-child {
+    margin-right: -15px !important;
+  }
+  
+  .navbar-right {
+    float: right!important;
+  }
+
+.navbar-center {
+    width:100%;
+    display: flex;
+}
+
+.navbar-center>li {
+    flex:1 1 auto;
+}
+
+#navMain ul li { 
+  width: 32%;
+  text-align: center;
+}
+
+.eventListingBorders { /* borders on top and bottom of events that are loaded onto the event feed page (DIVs) */
+    border-top-style: solid;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-left-style: none;
+    border-color: #2d2d2d;
+    margin-bottom: 10px;
+}
+
+.navEvent0 { 
+    /* nothing goes here, this is a class for js */ 
+}
+
+.jumbotron img { /* this fixes the image centering on the profile page */
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.profileStats { 
+  text-align: center;
+}
