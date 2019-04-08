@@ -1,31 +1,27 @@
 {
-  "_args": [
-    [
-      "phonegap-nfc@1.0.3",
-      "C:\\Git\\Mobile-App-Project\\Checkinator"
-    ]
-  ],
-  "_from": "phonegap-nfc@1.0.3",
+  "_from": "phonegap-nfc",
   "_id": "phonegap-nfc@1.0.3",
   "_inBundle": false,
   "_integrity": "sha512-z2Usir2k8lNuvx6ITq8Xklu1HblzXkyfANc6Vx/liDGB1Az1lyu39qfEuRhQfjX2zSR2tcvsJ5z8yZQZaQ+MWw==",
   "_location": "/phonegap-nfc",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
+    "type": "tag",
     "registry": true,
-    "raw": "phonegap-nfc@1.0.3",
+    "raw": "phonegap-nfc",
     "name": "phonegap-nfc",
     "escapedName": "phonegap-nfc",
-    "rawSpec": "1.0.3",
+    "rawSpec": "",
     "saveSpec": null,
-    "fetchSpec": "1.0.3"
+    "fetchSpec": "latest"
   },
   "_requiredBy": [
+    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/phonegap-nfc/-/phonegap-nfc-1.0.3.tgz",
-  "_spec": "1.0.3",
+  "_shasum": "6fe1baeba2e075b6352e1080601cf5f2db7de8f8",
+  "_spec": "phonegap-nfc",
   "_where": "C:\\Git\\Mobile-App-Project\\Checkinator",
   "author": {
     "name": "Don Coleman",
@@ -34,6 +30,7 @@
   "bugs": {
     "url": "https://github.com/chariotsolutions/phonegap-nfc/issues"
   },
+  "bundleDependencies": false,
   "cordova": {
     "id": "phonegap-nfc",
     "platforms": [
@@ -44,6 +41,7 @@
       "ios"
     ]
   },
+  "deprecated": false,
   "description": "Near Field Communication (NFC) Plugin. Read and write NDEF messages to NFC tags and share NDEF messages with peers.",
   "homepage": "https://github.com/chariotsolutions/phonegap-nfc#readme",
   "keywords": [

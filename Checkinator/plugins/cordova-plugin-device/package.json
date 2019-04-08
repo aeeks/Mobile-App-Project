@@ -1,31 +1,27 @@
 {
-  "_args": [
-    [
-      "cordova-plugin-device@2.0.2",
-      "C:\\Git\\Mobile-App-Project\\Checkinator"
-    ]
-  ],
-  "_from": "cordova-plugin-device@2.0.2",
+  "_from": "cordova-plugin-device",
   "_id": "cordova-plugin-device@2.0.2",
   "_inBundle": false,
   "_integrity": "sha1-/Ajzci5n7ve2xnv8mag99q3Quro=",
   "_location": "/cordova-plugin-device",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
+    "type": "tag",
     "registry": true,
-    "raw": "cordova-plugin-device@2.0.2",
+    "raw": "cordova-plugin-device",
     "name": "cordova-plugin-device",
     "escapedName": "cordova-plugin-device",
-    "rawSpec": "2.0.2",
+    "rawSpec": "",
     "saveSpec": null,
-    "fetchSpec": "2.0.2"
+    "fetchSpec": "latest"
   },
   "_requiredBy": [
+    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/cordova-plugin-device/-/cordova-plugin-device-2.0.2.tgz",
-  "_spec": "2.0.2",
+  "_shasum": "fc08f3722e67eef7b6c67bfc99a83df6add0baba",
+  "_spec": "cordova-plugin-device",
   "_where": "C:\\Git\\Mobile-App-Project\\Checkinator",
   "author": {
     "name": "Apache Software Foundation"
@@ -33,6 +29,7 @@
   "bugs": {
     "url": "https://issues.apache.org/jira/browse/CB"
   },
+  "bundleDependencies": false,
   "cordova": {
     "id": "cordova-plugin-device",
     "platforms": [
@@ -43,6 +40,7 @@
       "osx"
     ]
   },
+  "deprecated": false,
   "description": "Cordova Device Plugin",
   "devDependencies": {
     "eslint": "^3.19.0",

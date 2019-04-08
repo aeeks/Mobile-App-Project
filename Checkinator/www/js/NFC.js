@@ -15,9 +15,16 @@ function showSett() {
     nfc.showSettings();
 }
 
-/* //NFC Reading tags: (Tag must be formatted first, else the default android window will notify of a blank tag, leaving the app)    ----OLD CODE maybe done use this, but keep justincase
+//NFC Reading tags: (Tag must be formatted first, else the default android window will notify of a blank tag, leaving the app)    ----OLD CODE maybe done use this, but keep justincase
+
 function NFCRead() {
-nfc.addTagDiscoveredListener  (
+
+/* function readNDEFMsg() { 
+
+}  */
+
+
+/* nfc.addTagDiscoveredListener  (
     function (nfcEvent) {
         var tag = nfcEvent.tag,
             ndefMessage = tag.ndefMessage;
@@ -40,7 +47,7 @@ nfc.addTagDiscoveredListener  (
 );
 } */
 
-function NFCRead() {
+/* function NFCRead() {
 nfc.addNdefListener(
     app.onNdef,
     function() {
@@ -68,4 +75,23 @@ if (tag.serialNumber) {
 alert(app.tagTemplate(tag));
 
 navigator.notification.vibrate(100);        
+} */
+
+nfc.addTagDiscoveredListener  (
+    function (nfcEvent) {
+        var tag = nfcEvent.tag,
+            ndefMessage = tag.ndefMessage;
+
+        alert(JSON.stringify(ndefMessage));
+
+        alert(nfc.bytesToString(ndefMessage[0].payload).substring(3));
+
+    },
+    function () { // success callback
+        alert("Waiting for NDEF tag");
+    },
+    function (error) { // error callback
+        alert("Error adding NDEF listener " + JSON.stringify(error));
+    }
+);
 }
