@@ -21,6 +21,8 @@
             "cordova-plugin-device": {},
             "cordova-plugin-geolocation": {}
         },
-        "platforms": []
+        "platforms": [
+            "android"
+        ]
     }
 }
