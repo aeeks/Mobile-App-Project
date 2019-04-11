@@ -15,12 +15,10 @@
     "is_top_level": true,
     "variables": {}
   },
-  "phonegap-nfc": {
+  "com.chariotsolutions.nfc.plugin": {
     "source": {
-      "type": "registry",
-      "id": "phonegap-nfc@^1.0.3"
-    },
-    "is_top_level": true,
-    "variables": {}
+      "type": "local",
+      "path": "/Users/don/phonegap-nfc"
+    }
   }
 }

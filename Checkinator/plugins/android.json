@@ -12,12 +12,12 @@
     },
     "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.mobileapp.upb"
-    },
-    "phonegap-nfc": {
-      "PACKAGE_NAME": "com.mobileapp.upb"
     }
   },
   "dependent_plugins": {
+    "com.chariotsolutions.nfc.plugin": {
+      "PACKAGE_NAME": "com.mobileapp.upb"
+    },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.mobileapp.upb"
     }

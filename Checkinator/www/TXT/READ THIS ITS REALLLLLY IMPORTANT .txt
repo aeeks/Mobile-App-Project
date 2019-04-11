@@ -1,0 +1,7 @@
+<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="20"/>
+
+^^ this <stuff> right here needs to be placed in Android STudio when it errors off (click the "fix now" link when the red text appears)
+
+Apparently, these shenanigans shouldnt exist in the android manifest as of this version, but cordova put its there bc its stubborn af
+
+so, edit the manifest to say this <stuff>, and android studio will just be happy and stop yelling at everyone
