@@ -44,9 +44,9 @@ var app = {
             );
         }
 
-/*         app.compileTemplates();
+        app.compileTemplates();
         app.addTemplateHelpers();
-        app.showInstructions(); */
+        //app.showInstructions(); 
     },
     onNfc: function (nfcEvent) {
         
@@ -126,7 +126,7 @@ function decodePayload(record) {
         }
         //payload = "<a href='" + uri + "'>" + uri + "<\/a>";
         payload = uri;
-
+        
     } else {
 
         // kludge assume we can treat as String
