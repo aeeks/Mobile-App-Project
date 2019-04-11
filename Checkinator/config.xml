@@ -26,5 +26,4 @@
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="com.chariotsolutions.nfc.plugin" spec="^0.4.6" />
-    <engine name="android" spec="~7.1.4" />
 </widget>

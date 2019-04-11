@@ -6,7 +6,7 @@ var app = {
         document.addEventListener('deviceready', this.deviceready, false);
     },
     deviceready: function () {
-        console.log("Device Ready good");
+        console.log("Device Ready");
         function failure(reason) {
             navigator.notification.alert(reason, function() {}, "There was a problem");
         }
@@ -51,8 +51,8 @@ var app = {
     onNfc: function (nfcEvent) {
         
         var tag = nfcEvent.tag;
-        
-        alert(JSON.stringify(nfcEvent.tag));
+
+        //alert(JSON.stringify(nfcEvent.tag)); <-- Keep this, its default supposed to be here 
         //app.clearScreen();
 
  /*        tagContents.innerHTML = app.nonNdefTagTemplate(tag);    
@@ -60,7 +60,7 @@ var app = {
     },
     onNdef: function (nfcEvent) {
         
-        alert(JSON.stringify(nfcEvent.tag));
+
         //app.clearScreen();
 
         var tag = nfcEvent.tag;
@@ -72,7 +72,6 @@ var app = {
             tag.canMakeReadOnly = tag.isLockable;
         }
 
-        alert("NFC EVENT");
         //tagContents.innerHTML = app.tagTemplate(tag);
 
         //navigator.notification.vibrate(100);        
@@ -107,14 +106,10 @@ var app = {
     }
 };
 
-// ideally some form of this can move to phonegap-nfc util
+
 function decodePayload(record) {
     var recordType = nfc.bytesToString(record.type),
         payload;
-
-    // TODO extract this out to decoders that live in NFC code
-    // TODO add a method to ndefRecord so the helper 
-    // TODO doesn't need to do this
 
     if (recordType === "T") {
         var langCodeLength = record.payload[0],
@@ -137,11 +132,11 @@ function decodePayload(record) {
         // kludge assume we can treat as String
         payload = nfc.bytesToString(record.payload); 
     }
-
+    document.getElementById("printNDEFDIV").innerHTML = payload;  // <-- Print to HTML on NFC Page
     return payload;
 }
 
-function tnfToString(tnf) {
+function tnfToString(tnf) {  //Dont remove this.  we dont really need it all, but this file will break without this being here :-)
     var value = tnf;
     
     switch (tnf) {
