@@ -1,20 +1,3 @@
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
-    console.log("Device Ready");
-    document.addEventListener("pause", onPause, false);
-    document.addEventListener("resume", onResume, false);
-    document.addEventListener("menubutton", onMenuKeyDown, false);
-}
-function onPause() {
-    // Handle the pause event
-}
-function onResume() {
-    // Handle the resume event
-}
-function onMenuKeyDown() {
-    // Handle the menubutton event
-}
-
 //Vars
 var userEmail; 
 var userPasswd;
@@ -45,13 +28,13 @@ function getSignup(){
 }
 
 function getVerifCode(){ 
-    verifCode = 1234; //this should be set to the value that the user needs to match in order to activate an account (from internet source or maybe could generate this in app, send to email, then have user confirm)
+    verifCode = 123456789; //this should be set to the value that the user needs to match in order to activate an account (from internet source or maybe could generate this in app, send to email, then have user confirm)
     checkVerifCode = document.getElementById('checkVerifCode');
     console.log("Entered Code: " + checkVerifCode.value);
     verifyBtn02();
 }
 
-//Signupdemo value fixes:
+//Signupdemo value fixes:    TODO: I need to code this properly :-) 
 function SignupStudent() { 
     signupUserType = "Student";
 }

@@ -42,10 +42,6 @@ body {
     margin-bottom: 10px;
 }
 
-.navEvent0 { 
-    /* nothing goes here, this is a class for js */ 
-}
-
 .jumbotron img { /* this fixes the image centering on the profile page */
     display:block;
     margin-left:auto;

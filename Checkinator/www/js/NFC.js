@@ -1,4 +1,4 @@
-//Check if enabled: 
+//Check if enabled: <------- Demo buttons that appear on the NFC page for now, will be removed later on for the real deal 
 function checkEnabled() { 
     nfc.enabled(onSuccess, onFailure);
 } 
@@ -15,83 +15,36 @@ function showSett() {
     nfc.showSettings();
 }
 
-//NFC Reading tags: (Tag must be formatted first, else the default android window will notify of a blank tag, leaving the app)    ----OLD CODE maybe done use this, but keep justincase
-
-function NFCRead() {
-
-/* function readNDEFMsg() { 
-
-}  */
-
-
-/* nfc.addTagDiscoveredListener  (
-    function (nfcEvent) {
-        var tag = nfcEvent.tag,
-            ndefMessage = tag.ndefMessage;
-
-        // dump the raw json of the message
-        // note: real code will need to decode
-        // the payload from each record
-        alert(JSON.stringify(ndefMessage));
-
-        // assuming the first record in the message has
-        // a payload that can be converted to a string.
-        alert(nfc.bytesToString(ndefMessage[0].payload).substring(3));
-    },
-    function () { // success callback
-        alert("Waiting for NDEF tag");
-    },
-    function (error) { // error callback
-        alert("Error adding NDEF listener " + JSON.stringify(error));
-    }
-);
-} */
-
-/* function NFCRead() {
-nfc.addNdefListener(
-    app.onNdef,
-    function() {
-        console.log("Listening for NDEF tags.");
-    },
-    failure
-);
+//
+//This is called by clicking the Navbar button for NFC reading, this begins listening for NFC tags, upon finding one it stops listening for tags (and wont reactivate until the Navbar button is pressed again)
+function NFCRead() { 
+    //navigator.nfc.addMimeTypeListener("text/pg", readTag);
+    //nfc.addNdefListener(onNdef, failure);
+    ACTION_NDEF_DISCOVERED(onNdef, failure);
 }
 
-function nfcEvent() {
+/* function readTag(nfcEvent) { 
+    var tag= nfcEvent.tag; 
 
-console.log(JSON.stringify(nfcEvent.tag));
-//app.clearScreen();
+    alert(JSON.stringify(nfcevent.tag));
 
-var tag = nfcEvent.tag;
-
-// BB7 has different names, copy to Android names
-if (tag.serialNumber) {
-    tag.id = tag.serialNumber;
-    tag.isWritable = !tag.isLocked;
-    tag.canMakeReadOnly = tag.isLockable;
-}
-
-//tagContents.innerHTML = app.tagTemplate(tag);
-alert(app.tagTemplate(tag));
-
-navigator.notification.vibrate(100);        
+    // Change the NFC page here, after reading the tag, to alert of check-in success 
 } */
 
-nfc.addTagDiscoveredListener  (
-    function (nfcEvent) {
-        var tag = nfcEvent.tag,
-            ndefMessage = tag.ndefMessage;
+function onNdef(nfcEvent) {
+        
+    alert(JSON.stringify(nfcEvent.tag));
 
-        alert(JSON.stringify(ndefMessage));
+    var tag = nfcEvent.tag;
 
-        alert(nfc.bytesToString(ndefMessage[0].payload).substring(3));
+    // BB7 has different names, copy to Android names
+    if (tag.serialNumber) {
+        tag.id = tag.serialNumber;
+        tag.isWritable = !tag.isLocked;
+        tag.canMakeReadOnly = tag.isLockable;
+    }     
+}
 
-    },
-    function () { // success callback
-        alert("Waiting for NDEF tag");
-    },
-    function (error) { // error callback
-        alert("Error adding NDEF listener " + JSON.stringify(error));
-    }
-);
+function failure() { 
+    alert("failure");
 }

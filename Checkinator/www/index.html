@@ -5,12 +5,14 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/mainjs.js"></script> 
+        <!--App scripts: -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/handlebars.js"></script> <!-- Used by NFC code from NFC plugin (in newMain.js), is required-->
         <script type="text/javascript" src="js/navigation.js"></script> 
-        <script type="text/javascript" src="js/NFC.js"></script> 
-        <script type="text/javascript" src="cordova.js"></script> 
+        <script type="text/javascript" src="js/etcFunc.js"></script> <!-- Any non-NFC code from mainjs.js was moved here-->
+        <script type="text/javascript" src="js/newMain.js"></script> <!-- NFC IS IN HERE NOW-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CheckInator 9001.2</title>
+        <title>Check-In-ator 9002</title>
     </head><body class="container-fluid">
 
         <div id="navMain" class="navbar navbar-default navbar-fixed-top" style="display: none;"> <!--Main navbar, hidden on login page, shown everywhere else-->
@@ -19,7 +21,7 @@
                     <ul class="nav navbar-nav navbar-center text-center">
                         <li><a onclick="navProfile()">Profile</a></li>
                         <li><a onclick="navEvents()">Events</a></li>
-                        <li><a onclick="navCheckIn();NFCRead();">Check-In</a></li> <!--Calls 2 functions, checkin page for NAVJS and activates the NFC reader at same time -->
+                        <li><a onclick="navCheckIn();">Check-In</a></li> 
                     </ul></div></div></div> 
 
         <div id="welcome" class="container-fluid"> <!--Welcome Page-->
@@ -83,8 +85,7 @@
 
         <div id="nfcCheckIn" class="container-fluid navEvent0" style="display: none;"> <!--NFC check-in Page-->
         <h1>NFC Check page</h1><br />
-        <button onclick="checkEnabled()"class="btn btn-default  btn-block">Check if NFC enabled</button>
-        <button onclick="showSett()"class="btn btn-default  btn-block">Open device NFC settings</button>
-        <!--<button onclick="NFCRead()"class="btn btn-default  btn-block">Read a NDEF Tag</button> This is a button for demo, but could be loaded when NFC page is visible for ease of use-->
+        <!-- <button onclick="checkEnabled()"class="btn btn-default  btn-block">Check if NFC enabled</button>
+        <button onclick="showSett()"class="btn btn-default  btn-block">Open device NFC settings</button> -->
         </div>
 </body></html>

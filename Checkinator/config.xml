@@ -17,16 +17,14 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
-<!--    <preference name="AndroidLaunchMode" value="singleTop"/>
-        <preference name="android-minSdkVersion" value="14" />
-        <icon src="res/android/xhdpi.png" />               
-        <icon src="res/android/ldpi.png" density="ldpi" />
-        <icon src="res/android/mdpi.png" density="mdpi" />
-        <icon src="res/android/hdpi.png" density="hdpi" />
-        <icon src="res/android/xhdpi.png" density="xhdpi" /> -->
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
+    <plugin name="phonegap-nfc" spec="^1.0.3" />
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
+    <plugin name="cordova-plugin-device" spec="^2.0.2" />
+    <engine name="android" spec="~7.1.4" />
 </widget>
