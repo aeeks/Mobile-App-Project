@@ -6,9 +6,19 @@ var checkVerifCode;
 var userEventPoints = 0;
 
 // Needed in order to add events to events page: 
-var pre = '<div class="row eventListingBorders"><h1>';
+//For the DIV method (only loads one event onto the app page):
+/* var pre = '<div class="row eventListingBorders"><h1>';
 var mid = '</h1><br/><p>';
-var last = '</p></div>';
+var last = '</p></div>'; */
+
+//For the UL method: 
+var pre = '<li class="row eventListingBorders"><h1>';
+var mid = '</h1><br/><p>';
+var last = '</p></li>';
+
+var eventContainer = document.getElementsById("eventContainer");
+
+//
 
 const db = firebase.firestore();
 const eventsFS = db.collection('events');
@@ -21,12 +31,13 @@ function contentLoaderDemo() { //Loading content into the events section automat
 
 function getEvents() { //replaces contentLoaderDemo, loads events from firestore (db.events)
     eventsFS.get().then(snapshot => {
-        /* document.getElementById("eventContainer").innerHTML = snapshot.forEach(doc => { */
             snapshot.forEach(doc => {
-            document.getElementById("eventContainer").innerHTML=pre + doc.data().eventName + mid + doc.data().eventDescr + last; 
-/*      '<div class="row eventListingBorders"><h1>' + (doc.data().eventName) + '</h1><br/><p>' + (doc.data().eventDescr) + '</p></div>' */     
-            console.log("---"); 
-            console.log(doc.data().eventName);    
+            /* document.getElementById("eventContainer").innerHTML= pre + doc.data().eventName + mid + doc.data().eventDescr + last; */
+            
+            
+
+            console.log("---");
+            console.log(doc.data().eventName);
             console.log(doc.data().eventDescr);
             console.log("---");
         });
@@ -36,7 +47,7 @@ function getEvents() { //replaces contentLoaderDemo, loads events from firestore
 function getLogin() { // sign into user account 
     var userEmail = document.getElementById('userEmail');
     var userPasswd = document.getElementById('userPasswd');
-    console.log("Entered Email: " + userEmail.value + " Entered Password: " + userPasswd.value);
+    console.log("Entered Email: " + userEmail.value + "Entered Password: " + userPasswd.value);
     
 
     firebase.auth().signInWithEmailAndPassword(userEmail.value, userPasswd.value).catch(function(error) {

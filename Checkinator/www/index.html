@@ -98,7 +98,13 @@
         <div class="btn btn-default  btn-block" onclick="signOutUser()">Log Out</div></div>
 
         <div id="feed" class="container-fluid navEvent0" style="display: none;"> <!--Event Feed Page, this is just an empty container to dump info into dynamically-->
-        <div id="eventContainer" class="container-fluid"><div class="btn btn-default  btn-block" onclick="getEvents()">Load Events</div></div></div>
+            <!-- <div id="eventContainer" class="container-fluid"> -->
+                <div class="btn btn-default  btn-block" onclick="getEvents()">Load Events</div>
+                <ul id="eventContainer">
+                    <!--Events are loaded here now-->
+                </ul>
+            <!-- </div> -->
+        </div>
 
         <div id="nfcCheckIn" class="container-fluid navEvent0" style="display: none;"> <!--NFC check-in Page-->
         <h1>NFC Check page</h1><br />
