@@ -3,11 +3,34 @@ var signupPasswd;
 var signupUserType;
 var verifCode;
 var checkVerifCode;
+var userEventPoints = 0;
+
+// Needed in order to add events to events page: 
+var pre = '<div class="row eventListingBorders"><h1>';
+var mid = '</h1><br/><p>';
+var last = '</p></div>';
+
+const db = firebase.firestore();
+const eventsFS = db.collection('events');
 
 //Functions
 function contentLoaderDemo() { //Loading content into the events section automatically (could be from internet source)
     document.getElementById("eventContainer").innerHTML = '<div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div><div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div>';
     //Load this: <div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div>
+}
+
+function getEvents() { //replaces contentLoaderDemo, loads events from firestore (db.events)
+    eventsFS.get().then(snapshot => {
+        /* document.getElementById("eventContainer").innerHTML = snapshot.forEach(doc => { */
+            snapshot.forEach(doc => {
+            document.getElementById("eventContainer").innerHTML=pre + doc.data().eventName + mid + doc.data().eventDescr + last; 
+/*      '<div class="row eventListingBorders"><h1>' + (doc.data().eventName) + '</h1><br/><p>' + (doc.data().eventDescr) + '</p></div>' */     
+            console.log("---"); 
+            console.log(doc.data().eventName);    
+            console.log(doc.data().eventDescr);
+            console.log("---");
+        });
+      });
 }
 
 function getLogin() { // sign into user account 
@@ -37,8 +60,9 @@ function getSignup() { //create user account
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-
         window.alert("Error: " + error.message);
+        //Creating storage for the new user in firestore (for points and such): 
+
 
       });
     //Reloads page after creating account:
@@ -76,4 +100,9 @@ firebase.auth().onAuthStateChanged(function(user) { //need to add signup here as
 
 function signOutUser() { 
     firebase.auth().signOut()
+}
+
+function addPoints() { //Needs to be implemented in firestore
+    var userEventPoints = userEventPoints += 100; 
+    console.log(userEventPoints)
 }

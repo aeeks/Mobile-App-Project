@@ -2,6 +2,8 @@
         <meta charset="UTF-8"> 
         <!-- Firebase Code-->
         <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+<!--         <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-firestore.js"></script> FirebaseFirestoreCode, doesnt work atm, leaving out as comment..-->
         <script>
         // Initialize Firebase
         var config = {
@@ -14,7 +16,6 @@
         };
         firebase.initializeApp(config);
         </script>
-        
         <link rel="stylesheet" href="css/maincss.css"> 
         <!--Bootstrap ref: -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -92,11 +93,12 @@
                         <div class="col-xs-6">Student</div>
                     </div>  </div>                    
         <div class="btn btn-default  btn-block">Edit Profile</div>
-        <div class="btn btn-default  btn-block">Change Password</div>
+        <!-- <div class="btn btn-default  btn-block">Change Password</div> COMMENTED THIS OUT TO INSTEAD HAVE A POINTS DEMO FOR FIREBASE, still need this here  -->
+        <div class="btn btn-default  btn-block" onclick="addPoints()">Add 100 points :-)</div>
         <div class="btn btn-default  btn-block" onclick="signOutUser()">Log Out</div></div>
 
         <div id="feed" class="container-fluid navEvent0" style="display: none;"> <!--Event Feed Page, this is just an empty container to dump info into dynamically-->
-        <div id="eventContainer" class="container-fluid"><div class="btn btn-default  btn-block" onclick="contentLoaderDemo()">Load demo content</div></div></div>
+        <div id="eventContainer" class="container-fluid"><div class="btn btn-default  btn-block" onclick="getEvents()">Load Events</div></div></div>
 
         <div id="nfcCheckIn" class="container-fluid navEvent0" style="display: none;"> <!--NFC check-in Page-->
         <h1>NFC Check page</h1><br />
