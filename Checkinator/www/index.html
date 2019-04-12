@@ -36,7 +36,7 @@
                 <div class="container-fluid">
                     <ul class="nav navbar-nav navbar-center text-center">
                         <li><a onclick="navProfile()">Profile</a></li>
-                        <li><a onclick="navEvents()">Events</a></li>
+                        <li><a onclick="navEvents(); getEvents();">Events</a></li> <!--Calls to show events page, and also loads the events on that page at same time-->
                         <li><a onclick="navCheckIn();">Check-In</a></li> 
                     </ul></div></div></div> 
 
@@ -64,15 +64,14 @@
                         <label for="pwd">Enter a Password:</label>
                         <input type="password" class="form-control" id="signupPasswd">
                     </div> 
-                    <div class="dropdown">
+                    <!-- <div class="dropdown"> dropdown menu for selecting  user type
                             <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">I am...
                             <span class="caret"></span></button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
                               <li role="presentation"><a role="menuitem" onclick="setUserType()">User</a></li>
                               <li role="presentation"><a role="menuitem" onclick="setUserType()">Admin</a></li>
-                              <!-- <li role="presentation"><a role="menuitem" onclick="SignupVisitor()">Visitor</a></li> -->
                             </ul>
-                          </div> <br />
+                          </div> --> <br />
                     <div class="btn btn-default  btn-block" onclick="getSignup()">Create Account</div>
                     </div></div>
 
@@ -94,16 +93,18 @@
                     </div>  </div>                    
         <div class="btn btn-default  btn-block">Edit Profile</div>
         <!-- <div class="btn btn-default  btn-block">Change Password</div> COMMENTED THIS OUT TO INSTEAD HAVE A POINTS DEMO FOR FIREBASE, still need this here  -->
-        <div class="btn btn-default  btn-block" onclick="addPoints()">Add 100 points :-)</div>
+        <div class="btn btn-default  btn-block" onclick="createEventFB()">Create an Event</div>
         <div class="btn btn-default  btn-block" onclick="signOutUser()">Log Out</div></div>
 
         <div id="feed" class="container-fluid navEvent0" style="display: none;"> <!--Event Feed Page, this is just an empty container to dump info into dynamically-->
-            <!-- <div id="eventContainer" class="container-fluid"> -->
-                <div class="btn btn-default  btn-block" onclick="getEvents()">Load Events</div>
-                <ul id="eventContainer">
-                    <!--Events are loaded here now-->
-                </ul>
-            <!-- </div> -->
+                <!-- <div class="btn btn-default  btn-block" onclick="getEvents()">Load Events</div> <-- Demo button for loading events, keep this for troubleshooting-->
+                <div id="eventContainer">
+                    <!--Events are loaded in here now as list items-->
+                </div>
+        </div>
+
+        <div id="eventCreator" class="container-fluid navEvent0" style="display: none;"> <!--Event Creator page, used to create events in the firestoreDB-->
+
         </div>
 
         <div id="nfcCheckIn" class="container-fluid navEvent0" style="display: none;"> <!--NFC check-in Page-->
