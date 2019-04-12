@@ -24,7 +24,7 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/handlebars.js"></script> <!-- Used by NFC code from NFC plugin (in newMain.js), is required-->
         <script type="text/javascript" src="js/navigation.js"></script> 
-        <script type="text/javascript" src="js/etcFunc.js"></script> <!-- Any non-NFC code from mainjs.js was moved here-->
+        <script type="text/javascript" src="js/index.js"></script> <!-- Any non-NFC code from mainjs.js was moved here-->
         <script type="text/javascript" src="js/newMain.js"></script> <!-- NFC IS IN HERE NOW-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Check-In-ator 9002</title>
@@ -61,18 +61,18 @@
                     </div>
                     <div class="form-group">
                         <label for="pwd">Enter a Password:</label>
-                        <input type="password" class="form-control" id="signupPassword">
+                        <input type="password" class="form-control" id="signupPasswd">
                     </div> 
                     <div class="dropdown">
                             <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">I am...
                             <span class="caret"></span></button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                              <li role="presentation"><a role="menuitem" onclick="SignupStudent()">Student</a></li>
-                              <li role="presentation"><a role="menuitem" onclick="SignupFaculty()">Faculty</a></li>
-                              <li role="presentation"><a role="menuitem" onclick="SignupVisitor()">Visitor</a></li>
+                              <li role="presentation"><a role="menuitem" onclick="setUserType()">User</a></li>
+                              <li role="presentation"><a role="menuitem" onclick="setUserType()">Admin</a></li>
+                              <!-- <li role="presentation"><a role="menuitem" onclick="SignupVisitor()">Visitor</a></li> -->
                             </ul>
                           </div> <br />
-                    <div class="btn btn-default  btn-block" onclick="verifyBtn01()">Verify</div>
+                    <div class="btn btn-default  btn-block" onclick="getSignup()">Create Account</div>
                     </div></div>
 
         <div id="verify" class="container-fluid" style="display: none;"> <!--Verification code entry page -->
@@ -81,7 +81,7 @@
                         <label for="text">We sent a code to your email.  Enter it below to activate your account:</label>
                         <input type="text" class="form-control" id="checkVerifCode">
                     </div>
-                    <div class="btn btn-default  btn-block" onclick=" getVerifCode()">Verify Account</div>
+                    <div class="btn btn-default  btn-block" onclick="">Verify Account</div>
                     </div></div>
 
         <div id="profile" class="navEvent0" style="display: none;"> <!--Profile Page / show badges and points here? -->
@@ -93,7 +93,7 @@
                     </div>  </div>                    
         <div class="btn btn-default  btn-block">Edit Profile</div>
         <div class="btn btn-default  btn-block">Change Password</div>
-        <div class="btn btn-default  btn-block">Log Out</div></div>
+        <div class="btn btn-default  btn-block" onclick="signOutUser()">Log Out</div></div>
 
         <div id="feed" class="container-fluid navEvent0" style="display: none;"> <!--Event Feed Page, this is just an empty container to dump info into dynamically-->
         <div id="eventContainer" class="container-fluid"><div class="btn btn-default  btn-block" onclick="contentLoaderDemo()">Load demo content</div></div></div>

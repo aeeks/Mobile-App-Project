@@ -2,7 +2,8 @@ var a;
 var b;
 var c;
 
-function loginBtn() {
+//Replaced by Firebase Login code
+/* function loginBtn() {
     a = document.getElementById("welcome"); 
     a.style.display = 'none';
     b = document.getElementById('feed'); 
@@ -10,6 +11,7 @@ function loginBtn() {
     c = document.getElementById('navMain'); 
     c.style.display = 'block';
 }
+ */
 
 function signupBtn() {
     a = document.getElementById("welcome"); //turns visibility off for this div

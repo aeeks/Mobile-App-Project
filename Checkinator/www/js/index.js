@@ -1,6 +1,3 @@
-//Vars
-var userEmail; 
-var userPasswd;
 var signupEmail;
 var signupPasswd;
 var signupUserType;
@@ -13,19 +10,41 @@ function contentLoaderDemo() { //Loading content into the events section automat
     //Load this: <div class="row eventListingBorders"><h1>Event</h1><br/><p>Time, place</p></div>
 }
 
-function getLogin() { 
-    userEmail = document.getElementById('userEmail');
-    userPasswd = document.getElementById('userPasswd');
+function getLogin() { // sign into user account 
+    var userEmail = document.getElementById('userEmail');
+    var userPasswd = document.getElementById('userPasswd');
     console.log("Entered Email: " + userEmail.value + " Entered Password: " + userPasswd.value);
-    loginBtn();
+    
+
+    firebase.auth().signInWithEmailAndPassword(userEmail.value, userPasswd.value).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+
+        window.alert("Error: " + error.message);
+
+      });
+
 }
 
-function getSignup(){
+function getSignup() { //create user account
     signupEmail = document.getElementById('signupEmail');
     signupPasswd = document.getElementById('signupPasswd');
     console.log("Entered Email: " + signupEmail.value + " Entered Password: " + signupPasswd.value + "User Type: " + signupUserType);
-    signupBtn();
+    
+
+    firebase.auth().createUserWithEmailAndPassword(signupEmail.value, signupPasswd.value).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+
+        window.alert("Error: " + error.message);
+
+      });
+    //Reloads page after creating account:
+    
 }
+
 
 function getVerifCode(){ 
     verifCode = 123456789; //this should be set to the value that the user needs to match in order to activate an account (from internet source or maybe could generate this in app, send to email, then have user confirm)
@@ -35,12 +54,26 @@ function getVerifCode(){
 }
 
 //Signupdemo value fixes:    TODO: I need to code this properly :-) 
-function SignupStudent() { 
-    signupUserType = "Student";
+
+function setUserType() { 
+    signupUserType = "USER";
 }
-function SignupFaculty() { 
-    signupUserType = "Faculty";
-}
-function SignupVisitor() { 
-    signupUserType = "Visitor";
+
+//FIREBASE CODE
+
+firebase.auth().onAuthStateChanged(function(user) { //need to add signup here as well to hide that after signing up 
+    if (user) {
+        document.getElementById("welcome").style.display = 'none'; 
+        document.getElementById("signup").style.display = 'none';
+        document.getElementById('profile').style.display = 'block'; 
+        document.getElementById('navMain').style.display = 'block'; 
+    } else {
+        document.getElementById("welcome").style.display = 'block'; 
+        document.getElementById('profile').style.display = 'none'; 
+        document.getElementById('navMain').style.display = 'none'; 
+    }
+  });
+
+function signOutUser() { 
+    firebase.auth().signOut()
 }
