@@ -14,6 +14,7 @@ function contentLoaderDemo() { //Loading content into the events section automat
 } */
 
 function getEvents() { //replaces contentLoaderDemo, loads events from firestore (db.events), dynamically places them with bootstrap styling
+    document.getElementById("eventContainer").innerHTML = ""; 
     eventsFS.get().then(snapshot => {
             snapshot.forEach(doc => {
             var eventDetails = '<div class="panel-body"><h2>' + doc.data().eventName + '</h2>' + '<br /><p>'  +  doc.data().eventDescr + '</p></div>';
@@ -95,9 +96,20 @@ function signOutUser() {
 }
 
 function createEventFB() { 
-    //1) hide profile, show event creator (a new page)
+    document.getElementById('profile').style.display = 'none'; 
+    document.getElementById('eventCreator').style.display = 'block'; 
+}
 
-    //2) take data from event creator and insert it into firebase 
-
-    //3) add event confirm created page, witha  button to goto event feed 
+function submitEvent() { 
+    //Send entered data to firebaseDB:
+    var newEventName = document.getElementById('newEventName');
+    var newEventDescr = document.getElementById('newEventDescr');
+    eventsFS.doc().set({
+        eventName: newEventName.value,
+        eventDescr: newEventDescr.value
+    });
+    
+    //Return to profile page: 
+    document.getElementById('profile').style.display = 'block'; 
+    document.getElementById('eventCreator').style.display = 'none'; 
 }

@@ -104,7 +104,13 @@
         </div>
 
         <div id="eventCreator" class="container-fluid navEvent0" style="display: none;"> <!--Event Creator page, used to create events in the firestoreDB-->
-
+            <div class="form-group">
+                    <label for="text">Event Name: </label>
+                    <input type="text" class="form-control" id="newEventName">
+                    <label for="text">Event Description: </label>
+                    <input type="text" class="form-control" id="newEventDescr"><br />
+                    <div class="btn btn-default  btn-block" onclick="submitEvent()">Create</div>
+            </div>
         </div>
 
         <div id="nfcCheckIn" class="container-fluid navEvent0" style="display: none;"> <!--NFC check-in Page-->
