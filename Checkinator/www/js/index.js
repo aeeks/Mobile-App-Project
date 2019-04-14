@@ -1,6 +1,7 @@
 const db = firebase.firestore(); //main Firestore Database ref
 const eventsFS = db.collection('events'); //DB Ref for Events setting and getting
 const userFS = db.collection('users'); //DB Ref for users (this may be removed soon)
+const auth = firebase.auth(); //auth stuff
 var RightNow = new Date(); //Used for account creation ()
 var user = firebase.auth().currentUser; //Return current UID 
 var a, b, c; //Used for page changing
@@ -8,12 +9,12 @@ var UID =0; //Sets this to 0 default until someone logs in so js doesnt bitch ab
 
 //
 
-//userAuthCheck(); //May be replaced by a different function 
+//userAuthCheck(); //Partially replaced by function userAuthCheck(), but uncomment this if anyhting breaks and cant login/print UID at some point
 
 function getEvents() { //replaces contentLoaderDemo, loads events from firestore (db.events), dynamically places them with bootstrap styling
     document.getElementById("eventContainer").innerHTML = ""; 
     eventsFS.get().then(snapshot => {
-            snapshot.forEach(doc => {//This isnt an HTML list, but i used var names ul and li since its basically a list ;-) This uses Bootstrap-3 panels for info 
+            snapshot.forEach(doc => { //This isnt an HTML list, but ive used var names ul and li since its basically a list ;-) This uses Bootstrap-3 panels for the event data (event data is dumped into to the eventContainer DIV in no particular order from firestore)
             var eventDetails = '<div class="panel-body"><h2>' + doc.data().eventName + '</h2>' + '<br /><p>'  +  doc.data().eventDescr + '</p></div>';
             var ul = document.getElementById("eventContainer");
             var li = document.createElement("div");
@@ -24,6 +25,7 @@ function getEvents() { //replaces contentLoaderDemo, loads events from firestore
             console.log("---");
             console.log(doc.data().eventName);
             console.log(doc.data().eventDescr);
+            console.log("Created By: " + doc.data().createdBy); //If the event was created before createdBy was added to eventDB storage, this will be "undefined"
             console.log("---");
         });
       });
@@ -39,8 +41,9 @@ function getLogin() { // sign into user account
         var errorCode = error.code;
         var errorMessage = error.message;
         window.alert("Error: " + error.message);
-      });
-      firebase.auth().onAuthStateChanged(function(user) { //This manages auth, if user is signed in, app is useable, if no user, app is returned to login/welcome screen
+      })
+
+      firebase.auth().onAuthStateChanged(function(user) { //This manages auth, if user is signed in, app is useable, if no user, app is returned to login/welcome screen (SAME AS userAuthCheck function)
         if (user) {
             UID = user.uid;
             console.log("AUTH check: " + UID);
@@ -133,7 +136,7 @@ function navProfile() {
     elements = document.getElementsByClassName("navEvent0");
     for (var i = 0; i < elements.length; i++) {
         elements[i].style.display = "none"; 
-    } 
+    }
     b = document.getElementById('profile'); 
     b.style.display = 'block';
 }
