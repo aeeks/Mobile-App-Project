@@ -2,11 +2,9 @@
         <meta charset="UTF-8"> 
         <!-- Firebase Code-->
         <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
-<!--         <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-firestore.js"></script> FirebaseFirestoreCode, doesnt work atm, leaving out as comment..-->
         <script>
         // Initialize Firebase
-        var config = {
+        var config = { //Alex's Firestore/Firebase creds (open edit db): 
             apiKey: "AIzaSyAfBmEfOqJkN9FGkxcSHfqLY2CPY2I4Dzs",
             authDomain: "mobileapp2019-ae53d.firebaseapp.com",
             databaseURL: "https://mobileapp2019-ae53d.firebaseio.com",
@@ -16,6 +14,7 @@
         };
         firebase.initializeApp(config);
         </script>
+        <!-- /End Firebase code  -->
         <link rel="stylesheet" href="css/maincss.css"> 
         <!--Bootstrap ref: -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -24,9 +23,8 @@
         <!--App scripts: -->
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/handlebars.js"></script> <!-- Used by NFC code from NFC plugin (in newMain.js), is required-->
-        <script type="text/javascript" src="js/navigation.js"></script> 
         <script type="text/javascript" src="js/index.js"></script> <!-- Any non-NFC code from mainjs.js was moved here-->
-        <script type="text/javascript" src="js/newMain.js"></script> <!-- NFC IS IN HERE NOW-->
+        <script type="text/javascript" src="js/newMain.js"></script> <!-- NFC IS IN HERE NOW, this is required for now, this JS file also contains Cordova's main scripts-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Check-In-ator 9002</title>
     </head><body class="container-fluid">
@@ -64,6 +62,14 @@
                         <label for="pwd">Enter a Password:</label>
                         <input type="password" class="form-control" id="signupPasswd">
                     </div> 
+                    <div class="form-group">
+                        <label for="pwd">First Name:</label>
+                        <input type="text" class="form-control" id="signupFname">
+                    </div> 
+                    <div class="form-group">
+                        <label for="pwd">Last Name:</label>
+                        <input type="text" class="form-control" id="signupLname">
+                    </div> 
                     <!-- <div class="dropdown"> dropdown menu for selecting  user type
                             <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">I am...
                             <span class="caret"></span></button>
@@ -75,21 +81,12 @@
                     <div class="btn btn-default  btn-block" onclick="getSignup()">Create Account</div>
                     </div></div>
 
-        <div id="verify" class="container-fluid" style="display: none;"> <!--Verification code entry page -->
-            <div id="verifyDIV">
-                    <div class="form-group">
-                        <label for="text">We sent a code to your email.  Enter it below to activate your account:</label>
-                        <input type="text" class="form-control" id="checkVerifCode">
-                    </div>
-                    <div class="btn btn-default  btn-block" onclick="">Verify Account</div>
-                    </div></div>
-
         <div id="profile" class="navEvent0" style="display: none;"> <!--Profile Page / show badges and points here? -->
                 <div class="jumbotron">
                     <img src="img/generic-profile-picture.png" class="img-circle img-responsive"><br /><br /> <!-- Profile Picture placeholder, we need to make this load dynamically tho-->
                     <div class="row profileStats">
-                        <div class="col-xs-6">1,273 Points</div><!-- points display, student, placeholders, also need to be loaded from internet source for real thing -->
-                        <div class="col-xs-6">Student</div>
+                        <div class="col-xs-6" id="profPointsDisp">POINTS DISPLAY</div>
+                        <div class="col-xs-6" id="profFNDisp">FIRST NAME</div>
                     </div>  </div>                    
         <div class="btn btn-default  btn-block">Edit Profile</div>
         <!-- <div class="btn btn-default  btn-block">Change Password</div> COMMENTED THIS OUT TO INSTEAD HAVE A POINTS DEMO FOR FIREBASE, still need this here  -->

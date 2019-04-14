@@ -1,17 +1,8 @@
 var a;
 var b;
 var c;
-
-//Replaced by Firebase Login code
-/* function loginBtn() {
-    a = document.getElementById("welcome"); 
-    a.style.display = 'none';
-    b = document.getElementById('feed'); 
-    b.style.display = 'block';
-    c = document.getElementById('navMain'); 
-    c.style.display = 'block';
-}
- */
+var currentUser = firebase.auth().currentUser;
+var UID;
 
 function signupBtn() {
     a = document.getElementById("welcome"); //turns visibility off for this div
@@ -36,7 +27,7 @@ function verifyBtn02() {
     c.style.display = 'block';
 }
 
-/* Tricky navbar page changing solution:  */
+/* Tricky navbar page changing solution:  (Dont remove this) */
 function navEvents() {
     elements = document.getElementsByClassName("navEvent0");
     for (var i = 0; i < elements.length; i++) {
@@ -53,6 +44,22 @@ function navProfile() {
     } 
     b = document.getElementById('profile'); 
     b.style.display = 'block';
+
+    
+    //Points Display/ Returning FS data to the profile page onclick
+/*     usersFS.get(currentUser).then(snapshot => { 
+        var pointsDisp = document.getElementById("profPointsDisp"); 
+        var nameDisp = document.getElementById("profFNDisp"); 
+        pointsDisp.innerHTML = doc.data().points; 
+        nameDisp.innerHTML = doc.data().fname; 
+        console.log("---");
+        console.log(currentUser + "'s Stats: ");
+        console.log(doc.data().fname);
+        console.log(doc.data().points);
+        console.log("---");
+  }); */
+    UID = currentUser.uid;
+    console.log(UID);
 }
 
 function navCheckIn() {
