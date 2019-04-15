@@ -10,9 +10,6 @@
     "cordova-plugin-device": {
       "PACKAGE_NAME": "com.mobileapp.upb"
     },
-    "cordova-plugin-geolocation": {
-      "PACKAGE_NAME": "com.mobileapp.upb"
-    },
     "cordova-plugin-bluetoothle": {
       "PACKAGE_NAME": "com.mobileapp.upb"
     }
