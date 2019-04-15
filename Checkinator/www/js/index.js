@@ -3,6 +3,7 @@ const eventsFS = db.collection('events'); //DB Ref for Events setting and gettin
 const userFS = db.collection('users'); //DB Ref for users (this may be removed soon)
 const auth = firebase.auth(); //auth stuff
 var RightNow = new Date(); //Used for account creation ()
+var UnixTime;// = Date.now();
 var user = firebase.auth().currentUser; //Return current UID 
 var a, b, c; //Used for page changing
 var UID =0; //Sets this to 0 default until someone logs in so js doesnt bitch about undefined variables
@@ -12,9 +13,16 @@ var UID =0; //Sets this to 0 default until someone logs in so js doesnt bitch ab
 //userAuthCheck(); //Partially replaced by function userAuthCheck(), but uncomment this if anyhting breaks and cant login/print UID at some point
 
 function getEvents() { //replaces contentLoaderDemo, loads events from firestore (db.events), dynamically places them with bootstrap styling
+    console.clear();
+    UnixTime = Date.now();
     document.getElementById("eventContainer").innerHTML = ""; 
     eventsFS.get().then(snapshot => {
             snapshot.forEach(doc => { //This isnt an HTML list, but ive used var names ul and li since its basically a list ;-) This uses Bootstrap-3 panels for the event data (event data is dumped into to the eventContainer DIV in no particular order from firestore)
+            //Determine if event should be shown based on CURRENT unix time (from this) compared to EVENT END unix time (from db):
+            //Get date from event: 
+            var eventEnd = doc.data().eventEnd;
+            if (eventEnd - UnixTime > 0) { 
+            //If event can still be attended based on end time, show it on the events page: 
             var eventDetails = '<div class="panel-body"><h2>' + doc.data().eventName + '</h2>' + '<br /><p>'  +  doc.data().eventDescr + '</p></div>';
             var ul = document.getElementById("eventContainer");
             var li = document.createElement("div");
@@ -27,6 +35,7 @@ function getEvents() { //replaces contentLoaderDemo, loads events from firestore
             console.log(doc.data().eventDescr);
             console.log("Created By: " + doc.data().createdBy); //If the event was created before createdBy was added to eventDB storage, this will be "undefined"
             console.log("---");
+            } else { console.log("Event: " + doc.data.eventName + " Was excluded from the event listing page.")}
         });
       });
 }
@@ -105,9 +114,16 @@ function submitEvent() { //Triggered by the "submit event button"
     //Send entered data to firebaseDB:
     var newEventName = document.getElementById('newEventName');
     var newEventDescr = document.getElementById('newEventDescr');
+    var newEventStart = document.getElementById('newEventStartTime');
+    var newEventEnd = document.getElementById('newEventEndTime');
+    //Convert the date to UNIXTime:
+    var newEventSUnix = new Date(newEventStart.value).getTime() / 1000;
+    console.log(newEventSUnix);
     eventsFS.doc().set({
         eventName: newEventName.value,
         eventDescr: newEventDescr.value,
+        eventStart: 0,
+        eventEnd: 0,
         createdBy: UID
     });
     //Return to profile page after event creation: 

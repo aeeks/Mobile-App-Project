@@ -20,5 +20,13 @@
       "type": "local",
       "path": "/Users/don/phonegap-nfc"
     }
+  },
+  "cordova-plugin-bluetoothle": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-bluetoothle@4.5.3"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

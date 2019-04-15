@@ -4,7 +4,7 @@
         <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
         <script>
         // Initialize Firebase
-        var config = { //Alex's Firestore/Firebase creds (open edit db): 
+        var config = { //Alex's Firestore/Firebase creds (open-edit db): 
             apiKey: "AIzaSyAfBmEfOqJkN9FGkxcSHfqLY2CPY2I4Dzs",
             authDomain: "mobileapp2019-ae53d.firebaseapp.com",
             databaseURL: "https://mobileapp2019-ae53d.firebaseio.com",
@@ -87,7 +87,7 @@
                     <div class="row profileStats">
                         <div class="col-xs-6" id="profPointsDisp">POINTS DISPLAY</div>
                         <div class="col-xs-6" id="profFNDisp">FIRST NAME</div>
-                    </div>  </div>                    
+                    </div></div>                    
         <div class="btn btn-default  btn-block">Edit Profile</div>
         <!-- <div class="btn btn-default  btn-block">Change Password</div> COMMENTED THIS OUT TO INSTEAD HAVE A POINTS DEMO FOR FIREBASE, still need this here  -->
         <div class="btn btn-default  btn-block" onclick="createEventFB()">Create an Event</div>
@@ -97,18 +97,23 @@
                 <!-- <div class="btn btn-default  btn-block" onclick="getEvents()">Load Events</div> <-- Demo button for loading events, keep this for troubleshooting-->
                 <div id="eventContainer">
                     <!--Events are loaded in here now as list items-->
-                </div>
-        </div>
+                </div></div>
 
         <div id="eventCreator" class="container-fluid navEvent0" style="display: none;"> <!--Event Creator page, used to create events in the firestoreDB-->
             <div class="form-group">
                     <label for="text">Event Name: </label>
                     <input type="text" class="form-control" id="newEventName">
                     <label for="text">Event Description: </label>
-                    <input type="text" class="form-control" id="newEventDescr"><br />
+                    <input type="text" class="form-control" id="newEventDescr">
+
+                    <!--Start Day and time:-->
+                    <label for="text">Event Start Time: </label>
+                    <input type="date" class="form-control" id="newEventStartTime">
+                    <label for="text">Event End Time: </label>
+                    <input type="date" class="form-control" id="newEventEndTime">
+
                     <div class="btn btn-default  btn-block" onclick="submitEvent()">Create</div>
-            </div>
-        </div>
+            </div></div>
 
         <div id="nfcCheckIn" class="container-fluid navEvent0" style="display: none;"> <!--NFC check-in Page-->
         <h1>NFC Check page</h1><br />

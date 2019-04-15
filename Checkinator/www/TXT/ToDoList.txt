@@ -1,12 +1,14 @@
 (Append "(DONE)" to beginning of lines when tasks complete)
 Current (4-14-19/3PM): 
 
+//General: 
+-Need null-input protections for most fields.  Firebase auth stuff has protection, but anything that (Alex) coded does not, most of the time, if a value is not entered, the inputs is submitted and will return "undefined" when retrieved
+
 
 //Auth: 
 -Need to set (with firebase auth) displayname, profile picture, sending confirm emails (@pitt.edu domain) 
 -Ability to edit account information (there is currently an unused button on profile page for this) 
 -How to handle lost passwords? 
-
 
 
 //Event Check-in: 
@@ -21,12 +23,10 @@ Current (4-14-19/3PM):
 -Points system?: Need to figure out what works best and maybe base our attendance system from that, example: NFC only allows for single check-in, bluetooth allows for continuous checking for event attend time
 
 
-
 //Event Creation: 
 -Need a button (on profile) to return "My events" (created by currentUser) and be able to modify, delete events
 -Events are currently listed in no order on the events page, need to sort by soonest occuring event 
 -Events need a start and end time, (sorted by start time soonest on events page), after end time, events will not appear on events page (but still exist in firestore) 
-
 
 
 //UIDesign: (Not immidiate) 
