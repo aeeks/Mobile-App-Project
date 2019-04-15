@@ -20,15 +20,15 @@ function getEvents() { //replaces contentLoaderDemo, loads events from firestore
             snapshot.forEach(doc => { //This isnt an HTML list, but ive used var names ul and li since its basically a list ;-) This uses Bootstrap-3 panels for the event data (event data is dumped into to the eventContainer DIV in no particular order from firestore)
             //Determine if event should be shown based on CURRENT unix time (from this) compared to EVENT END unix time (from db):
             //Get date from event: 
-            var eventEnd = doc.data().eventEnd;
-            if (eventEnd - UnixTime > 0) { 
+            var eventEnd = doc.data().eventEnd; 
+            if (eventEnd - UnixTime < 0) { 
             //If event can still be attended based on end time, show it on the events page: 
-            var eventDetails = '<div class="panel-body"><h2>' + doc.data().eventName + '</h2>' + '<br /><p>'  +  doc.data().eventDescr + '</p></div>';
-            var ul = document.getElementById("eventContainer");
-            var li = document.createElement("div");
-            li.setAttribute("class", "panel panel-default")
-            li.innerHTML = eventDetails;
-            ul.appendChild(li);
+            var eventDetails = '<div class="panel-body"><h2>' + doc.data().eventName + '</h2>' + '<br /><p>'  +  doc.data().eventDescr + '</p></div>'; 
+            var ul = document.getElementById("eventContainer"); 
+            var li = document.createElement("div"); 
+            li.setAttribute("class", "panel panel-default") 
+            li.innerHTML = eventDetails; 
+            ul.appendChild(li); 
             //
             console.log("---");
             console.log(doc.data().eventName);
@@ -101,7 +101,7 @@ firebase.auth().onAuthStateChanged(function(user) { //This manages auth, if user
   }); 
 
 function signOutUser() { 
-    UID= 0;
+    UID = 0;
     firebase.auth().signOut();
 }
 
@@ -117,13 +117,16 @@ function submitEvent() { //Triggered by the "submit event button"
     var newEventStart = document.getElementById('newEventStartTime');
     var newEventEnd = document.getElementById('newEventEndTime');
     //Convert the date to UNIXTime:
-    var newEventSUnix = new Date(newEventStart.value).getTime() / 1000;
+    UnixTime = Date.now(); 
+    console.log(UnixTime); 
+    var newEventSUnix = new Date(newEventStart.value).getTime() / 1000; 
+    var newEventEUnix = new Date(newEventEnd.value).getTime() / 1000; 
     console.log(newEventSUnix);
     eventsFS.doc().set({
         eventName: newEventName.value,
         eventDescr: newEventDescr.value,
-        eventStart: 0,
-        eventEnd: 0,
+        eventStart: newEventSUnix,
+        eventEnd: newEventEUnix,
         createdBy: UID
     });
     //Return to profile page after event creation: 

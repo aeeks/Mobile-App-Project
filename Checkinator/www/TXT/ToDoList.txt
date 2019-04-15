@@ -9,6 +9,7 @@ Current (4-14-19/3PM):
 -Need to set (with firebase auth) displayname, profile picture, sending confirm emails (@pitt.edu domain) 
 -Ability to edit account information (there is currently an unused button on profile page for this) 
 -How to handle lost passwords? 
+-Basic requirements for passwords for length and complexity
 
 
 //Event Check-in: 
@@ -26,7 +27,7 @@ Current (4-14-19/3PM):
 //Event Creation: 
 -Need a button (on profile) to return "My events" (created by currentUser) and be able to modify, delete events
 -Events are currently listed in no order on the events page, need to sort by soonest occuring event 
--Events need a start and end time, (sorted by start time soonest on events page), after end time, events will not appear on events page (but still exist in firestore) 
+-Sort events by ending time soonest (or maybe start time soonest??)
 
 
 //UIDesign: (Not immidiate) 
