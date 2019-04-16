@@ -7,17 +7,14 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-device": {
+    "cordova-plugin-bluetoothle": {
       "PACKAGE_NAME": "com.mobileapp.upb"
     },
-    "cordova-plugin-bluetoothle": {
+    "cordova-plugin-device": {
       "PACKAGE_NAME": "com.mobileapp.upb"
     }
   },
   "dependent_plugins": {
-    "com.chariotsolutions.nfc.plugin": {
-      "PACKAGE_NAME": "com.mobileapp.upb"
-    },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.mobileapp.upb"
     }
