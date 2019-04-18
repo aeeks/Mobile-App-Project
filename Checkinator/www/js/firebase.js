@@ -19,7 +19,7 @@ auth.onAuthStateChanged(user => { //This manages auth, if user is signed in, app
 
 //Logs in the User
 function LoginUser() {
-    alert('logging in user');
+    /* alert('logging in user'); */
     var userEmail = document.getElementById('userEmail');
     var userPasswd = document.getElementById('userPasswd');
     console.log("Entered Email: " + userEmail.value + "Entered Password: " + userPasswd.value);

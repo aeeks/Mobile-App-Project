@@ -12,4 +12,15 @@ var app = {
     }
 }
 
-GetEvents()
+function navigate(pageName) {
+    var currentPageName = localStorage.getItem('currentPage');
+    if (currentPageName) {
+        var currentPage = document.getElementById(currentPageName);
+        currentPage.style.display = 'none';   
+    }
+    localStorage.setItem('currentPage', pageName)
+    newPage = document.getElementById(pageName);
+    newPage.style.display = 'block';
+}
+
+/* GetEvents() */  //Prints events before logging in (on login page) to console

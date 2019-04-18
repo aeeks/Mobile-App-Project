@@ -55,7 +55,7 @@ var app = {
         //alert(JSON.stringify(nfcEvent.tag)); <-- Keep this, its default supposed to be here 
         //app.clearScreen();
 
- /*        tagContents.innerHTML = app.nonNdefTagTemplate(tag);    
+ /*     tagContents.innerHTML = app.nonNdefTagTemplate(tag);    
         navigator.notification.vibrate(100);  */       
     },
     onNdef: function (nfcEvent) {

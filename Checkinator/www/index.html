@@ -26,14 +26,8 @@
     <!--App scripts: -->
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/handlebars.js"></script>
-    <script type="text/javascript" src='./js/navigation.js'></script>
     <script type="text/javascript" src='./js/firebase.js'></script>
-    <!-- Used by NFC code from NFC plugin (in newMain.js), is required-->
-    <script type="text/javascript" src="js/index.js"></script> <!-- Any non-NFC code from mainjs.js was moved here-->
-    <script type="text/javascript" src="js/newMain.js"></script>
-    <!-- NFC IS IN HERE NOW, this is required for now, this JS file also contains Cordova's main scripts-->
-
-    <!--All data from firebase is retrieved from a function this file. This is to create a centralized place for data to be retireved and updated.-->
+    <script type="text/javascript" src="js/index.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check-In-ator 9002</title>
 </head>
@@ -103,10 +97,10 @@
 
 
 
-    <!--Profile Page / show badges and points here? -->
+    <!--Profile Page-->
     <div id="profile">
         <div class="jumbotron">
-            <img src="img/generic-profile-picture.png" class="img-circle img-responsive"><br /><br />
+            <img src="img/generic-profile-picture.png" class="img-circle img-responsive"><br />
             <!-- Profile Picture placeholder, we need to make this load dynamically tho-->
             <div class="row profileStats">
                 <div class="col-xs-6" id="profPointsDisp">POINTS DISPLAY</div>
@@ -114,7 +108,6 @@
             </div>
         </div>
         <div class="btn btn-default  btn-block">Edit Profile</div>
-        <!-- <div class="btn btn-default  btn-block">Change Password</div> COMMENTED THIS OUT TO INSTEAD HAVE A POINTS DEMO FOR FIREBASE, still need this here  -->
         <div class="btn btn-default  btn-block" onclick="navigate('eventcreate')">Create an Event</div>
         <div class="btn btn-default  btn-block" onclick="SignOutUser()">Log Out</div>
     </div>
@@ -123,7 +116,7 @@
 
 
     <!--Event Feed Page, this is just an empty container to dump info into dynamically-->
-    <!-- <div class="btn btn-default  btn-block" onclick="getEvents()">Load Events</div> <-- Demo button for loading events, keep this for troubleshooting-->
+    <!-- <div class="btn btn-default  btn-block" onclick="getEvents()">Load Events</div>-->
     <div id="events" onload="GetEvents()">
         <div id="eventContainer">
             <!--Events are loaded in here now as list items-->
@@ -156,7 +149,6 @@
 
     <!--NFC check-in Page-->
     <div id="nfccheckin">
-        
         <h1>NFC Check page</h1><br />
         <div id="printNDEFDIV">No data here yet</div>
         <!-- <button onclick="checkEnabled()"class="btn btn-default  btn-block">Check if NFC enabled</button>
