@@ -1,41 +1,15 @@
-(Append "(DONE)" to beginning of lines when tasks complete)
-Current (4-14-19/3PM): 
-
-//General: 
--Need null-input protections for most fields.  Firebase auth stuff has protection, but anything that (Alex) coded does not, most of the time, if a value is not entered, the inputs is submitted and will return "undefined" when retrieved
-
+Current (4-18-19/4PM): 
 
 //Auth: 
--Need to set (with firebase auth) displayname, profile picture, sending confirm emails (@pitt.edu domain) 
--Ability to edit account information (there is currently an unused button on profile page for this) 
--How to handle lost passwords? 
--Basic requirements for passwords for length and complexity
-
+-How to store/retrieve user points in firestore? 
+-Pitt Email auth/confirming account creation with @pitt.edu
 
 //Event Check-in: 
--Decide on BT or NFC: 
-	-NFC + IOS is tricky, maybe use BT
-	-Tie Check-in data to events on eventCreation, maybe tie to eventCreator's Phone (they need to be at the event) 
-----BT: 
-	-Maybe could tie to eventCreator's device BT ID, have users connect and assign points based on initial connect, and time spent at event 
-----NFC: 
-	-Tag's NAME could be written based on UID of eventCreator and DATA could be written based on eventID(from firestore), event attendance could be sent to firestore under a new collection/doc (foreach event)
-
--Points system?: Need to figure out what works best and maybe base our attendance system from that, example: NFC only allows for single check-in, bluetooth allows for continuous checking for event attend time
-
+-Auth into a specific event with NFC tag (need to write a code to tag, and tie that code to firestore record)
 
 //Event Creation: 
 -Need a button (on profile) to return "My events" (created by currentUser) and be able to modify, delete events
--Events are currently listed in no order on the events page, need to sort by soonest occuring event 
--Sort events by ending time soonest (or maybe start time soonest??)
+-Sort Events by time now - time start (soonest occuring)
 
-
-//UIDesign: (Not immidiate) 
--Navbar needs centered better (Alex tried and failed :-) ) 
--Dark theme/ light theme user choice in app: requires a toggle in Bootstrap-3 classes (should be easy), and some custom css(hard) <-- This isnt an immidiate need 
--Need a general theme (All buttons, navbars, screens matching) --> Maybe use Cathedral blue theme/Panther Gold variations (Start with the official pitt colors, then variate blues or golds to create a cool theme) 
--Need backgrounds for pages other than main page (not all same pic, but a theme, so main page is welcome theme, app pages share a theme, etc) 
-
-
-//Testing: (Not immidiate) 
--Need to test BT (if used) P2P with a registered event device, and a event atendee device (Android)  
+//UIDesign: 
+-Backgrounds, Theme, Colors
