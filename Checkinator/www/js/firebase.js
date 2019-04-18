@@ -31,11 +31,13 @@ function LoginUser() {
         window.alert("Error: " + err.message);
     })
 }
+
 //Signs the User Out
 function SignOutUser() {
     auth.signOut();
     navigate('login')
 }
+
 //Signs the User Up
 function SignupUser() { //create user account
     var signupEmail = document.getElementById('signupEmail');
