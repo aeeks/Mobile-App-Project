@@ -54,46 +54,46 @@ function SignupUser() { //create user account
 
 //Submits a new Event for the User.
 function SubmitEvent() { //Triggered by the "submit event button"
-    //Send entered data to firebaseDB:
     var eventName = document.getElementById('newEventName');
     var eventDescr = document.getElementById('newEventDescr');
-    var eventStart = document.getElementById('newEventStartTime');
-    var eventEnd = document.getElementById('newEventEndTime');
-    //get the current date in UnixTime:
-    UnixTime = Date.now();
-    console.log(UnixTime);
-    var eventSUnix = new Date(eventStart.value).getTime() / 1000;
-    var eventEUnix = new Date(eventEnd.value).getTime() / 1000;
+    var newEventStartTime = (document.getElementById('newEventStartDate').value + 'T' + document.getElementById('newEventStartTime').value + 'Z');
+    var startDate = new Date(newEventStartTime).getTime();
+    var newEventEndTime = (document.getElementById('newEventEndDate').value + 'T' + document.getElementById('newEventEndTime').value + 'Z');
+    var endDate = new Date(newEventEndTime).getTime();
+    var createTime = Date.now(); //Shows timestamp of when event was submitted
     firestore.collection('events').doc().set({
         eventName: eventName.value,
         eventDescr: eventDescr.value,
-        eventStart: eventSUnix,
-        eventEnd: eventEUnix,
-        createdBy: auth.currentUser.uid 
+        eventStartTime: startDate,
+        eventEndTime: endDate,
+        createdBy: auth.currentUser.uid, 
+        createdTime: createTime
     });
     //Return to events page after event creation:
-    GetEvents()
-    navigate('events');
+    GetEvents();
+    navigate('events'); 
 }
 
 function GetEvents() {
-    var UnixTime = Date.now();
+    var RightNow = Date.now();
+    console.log("now: " + RightNow);
     firestore.collection('events').get().then(snapshot => {
         snapshot.forEach(doc => {
-            console.log(JSON.stringify(doc.data()))
-            var eventEnd = doc.data().eventEnd; 
-            if (eventEnd - UnixTime < 0) { 
-                var eventBody = '<div class="panel-body"><h2>' + doc.data().eventName + '</h2> <p> ' + doc.data().eventDescr + '</p></div>';
+            var eventStarting = new Date(doc.data().eventStartTime);
+            var eventEnding = new Date(doc.data().eventEndTime);
+            var checkEndTime = eventEnding.getTime();
+            console.log("Eventendtime: " + eventEnding);
+            if (checkEndTime - RightNow < 0) { 
+                var eventBody = '<div class="panel-body"><h2>' + doc.data().eventName + '</h2><h3> ' + doc.data().eventDescr + '</h3><p><strong>Start Time: </strong>' + eventStarting + '<br /><strong>End Time: </strong>' + eventEnding  + '</p></div>';
                 var eventContainer = document.getElementById("eventContainer"); 
                 var eventItem = document.createElement("div"); 
                 eventItem.setAttribute("class", "panel panel-default") 
                 eventItem.innerHTML = eventBody; 
                 eventContainer.appendChild(eventItem); 
-            }
+             }
             else {
-                console.log("Event: " + doc.data.eventName + " Was excluded from the event listing page.")
-            }
+                console.log("Event: " + doc.data().eventName + " Was excluded from the event listing page because it's time expired.");
+            } 
         })
     })
 }
-

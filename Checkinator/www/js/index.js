@@ -22,5 +22,3 @@ function navigate(pageName) {
     newPage = document.getElementById(pageName);
     newPage.style.display = 'block';
 }
-
-/* GetEvents() */  //Prints events before logging in (on login page) to console

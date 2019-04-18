@@ -7,10 +7,10 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-bluetoothle": {
+  "phonegap-nfc": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-bluetoothle@4.5.3"
+      "id": "phonegap-nfc"
     },
     "is_top_level": true,
     "variables": {}
