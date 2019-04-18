@@ -1,8 +1,10 @@
-<html><head>
-        <meta charset="UTF-8"> 
-        <!-- Firebase Code-->
-        <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
-        <script>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Firebase Code-->
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+    <script>
         // Initialize Firebase
         var config = { //Alex's Firestore/Firebase creds (open-edit db): 
             apiKey: "AIzaSyAfBmEfOqJkN9FGkxcSHfqLY2CPY2I4Dzs",
@@ -13,33 +15,44 @@
             messagingSenderId: "884491553362"
         };
         firebase.initializeApp(config);
-        </script>
-        <!-- /End Firebase code  -->
-        <link rel="stylesheet" href="css/maincss.css"> 
-        <!--Bootstrap ref: -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <!--App scripts: -->
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/handlebars.js"></script> <!-- Used by NFC code from NFC plugin (in newMain.js), is required-->
-        <script type="text/javascript" src="js/index.js"></script> <!-- Any non-NFC code from mainjs.js was moved here-->
-        <script type="text/javascript" src="js/newMain.js"></script> <!-- NFC IS IN HERE NOW, this is required for now, this JS file also contains Cordova's main scripts-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Check-In-ator 9002</title>
-    </head><body class="container-fluid">
+    </script>
+    <!-- /End Firebase code  -->
+    <link rel="stylesheet" href="css/maincss.css">
+    <link rel='stylesheet' href='css/navigation.css'>
+    <!--Bootstrap ref: -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <!--App scripts: -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/handlebars.js"></script>
+    <script type="text/javascript" src='./js/navigation.js'></script>
+    <script type="text/javascript" src='./js/firebase.js'></script>
+    <!-- Used by NFC code from NFC plugin (in newMain.js), is required-->
+    <script type="text/javascript" src="js/index.js"></script> <!-- Any non-NFC code from mainjs.js was moved here-->
+    <script type="text/javascript" src="js/newMain.js"></script>
+    <!-- NFC IS IN HERE NOW, this is required for now, this JS file also contains Cordova's main scripts-->
 
-        <div id="navMain" class="navbar navbar-default navbar-fixed-top" style="display: none;"> <!--Main navbar, hidden on login page, shown everywhere else-->
-            <div class="navbar-inner">
-                <div class="container-fluid">
-                    <ul class="nav navbar-nav navbar-center">
-                        <li><a onclick="navProfile()">Profile</a></li>
-                        <li><a onclick="navEvents(); getEvents();">Events</a></li> <!--Calls to show events page, and also loads the events on that page at same time-->
-                        <li><a onclick="navCheckIn();">Check-In</a></li>
-                    </ul></div></div></div> 
+    <!--All data from firebase is retrieved from a function this file. This is to create a centralized place for data to be retireved and updated.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check-In-ator 9002</title>
+</head>
 
-        <div id="welcome" class="container-fluid"> <!--Welcome Page-->
-            <div id="loginDIV">
+<body>
+
+    <!--Main navbar, hidden on login page, shown everywhere else-->
+    <div id="nav" class="navbar">
+        <div class="nav-items">
+            <div><a onclick="navigate('profile')">Profile</a></div>
+            <div><a onclick="navigate('events')">Events</a></div>
+            <div><a onclick="navigate('nfccheckin')">Check-In</a></div>
+        </div>
+    </div>
+
+
+    <!--Login Page-->
+    <div id="login">
+        <div id="loginDIV">
             <div class="form-group">
                 <label for="email">Pitt Email:</label>
                 <input type="text" class="form-control" id="userEmail">
@@ -47,30 +60,35 @@
             <div class="form-group">
                 <label for="pwd">Password:</label>
                 <input type="password" class="form-control" id="userPasswd">
-            </div> 
-            <div class="btn btn-default  btn-block" onclick="getLogin()">Login</div>
-            <div class="btn btn-default  btn-block" onclick="signupBtn()">Signup</div>
-            </div></div>
+            </div>
+            <div class="btn btn-default  btn-block" onclick="LoginUser()">Login</div>
+            <div class="btn btn-default  btn-block" onclick="navigate('signup')">Signup</div>
+        </div>
+    </div>
 
-        <div id="signup" class="container-fluid" style="display: none;"> <!--Signup Page-->
-            <div id="signupDIV">
-                    <div class="form-group">
-                        <label for="email">Your Pitt Email:</label>
-                        <input type="text" class="form-control" id="signupEmail">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Enter a Password:</label>
-                        <input type="password" class="form-control" id="signupPasswd">
-                    </div> 
-                    <div class="form-group">
-                        <label for="pwd">First Name:</label>
-                        <input type="text" class="form-control" id="signupFname">
-                    </div> 
-                    <div class="form-group">
-                        <label for="pwd">Last Name:</label>
-                        <input type="text" class="form-control" id="signupLname">
-                    </div> 
-                    <!-- <div class="dropdown"> dropdown menu for selecting  user type
+
+
+
+    <!--Signup Page-->
+    <div id="signup">
+        <div id="signupDIV">
+            <div class="form-group">
+                <label for="email">Your Pitt Email:</label>
+                <input type="text" class="form-control" id="signupEmail">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Enter a Password:</label>
+                <input type="password" class="form-control" id="signupPasswd">
+            </div>
+            <div class="form-group">
+                <label for="pwd">First Name:</label>
+                <input type="text" class="form-control" id="signupFname">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Last Name:</label>
+                <input type="text" class="form-control" id="signupLname">
+            </div>
+            <!-- <div class="dropdown"> dropdown menu for selecting  user type
                             <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">I am...
                             <span class="caret"></span></button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
@@ -78,47 +96,72 @@
                               <li role="presentation"><a role="menuitem" onclick="setUserType()">Admin</a></li>
                             </ul>
                           </div> --> <br />
-                    <div class="btn btn-default  btn-block" onclick="getSignup()">Create Account</div>
-                    </div></div>
+            <div class="btn btn-default  btn-block" onclick="getSignup()">Create Account</div>
+        </div>
+    </div>
 
-        <div id="profile" class="navEvent0" style="display: none;"> <!--Profile Page / show badges and points here? -->
-                <div class="jumbotron">
-                    <img src="img/generic-profile-picture.png" class="img-circle img-responsive"><br /><br /> <!-- Profile Picture placeholder, we need to make this load dynamically tho-->
-                    <div class="row profileStats">
-                        <div class="col-xs-6" id="profPointsDisp">POINTS DISPLAY</div>
-                        <div class="col-xs-6" id="profFNDisp">FIRST NAME</div>
-                    </div></div>                    
+
+
+
+    <!--Profile Page / show badges and points here? -->
+    <div id="profile">
+        <div class="jumbotron">
+            <img src="img/generic-profile-picture.png" class="img-circle img-responsive"><br /><br />
+            <!-- Profile Picture placeholder, we need to make this load dynamically tho-->
+            <div class="row profileStats">
+                <div class="col-xs-6" id="profPointsDisp">POINTS DISPLAY</div>
+                <div class="col-xs-6" id="profFNDisp">FIRST NAME</div>
+            </div>
+        </div>
         <div class="btn btn-default  btn-block">Edit Profile</div>
         <!-- <div class="btn btn-default  btn-block">Change Password</div> COMMENTED THIS OUT TO INSTEAD HAVE A POINTS DEMO FOR FIREBASE, still need this here  -->
-        <div class="btn btn-default  btn-block" onclick="createEventFB()">Create an Event</div>
-        <div class="btn btn-default  btn-block" onclick="signOutUser()">Log Out</div></div>
+        <div class="btn btn-default  btn-block" onclick="navigate('eventcreate')">Create an Event</div>
+        <div class="btn btn-default  btn-block" onclick="SignOutUser()">Log Out</div>
+    </div>
 
-        <div id="feed" class="container-fluid navEvent0" style="display: none;"> <!--Event Feed Page, this is just an empty container to dump info into dynamically-->
-                <!-- <div class="btn btn-default  btn-block" onclick="getEvents()">Load Events</div> <-- Demo button for loading events, keep this for troubleshooting-->
-                <div id="eventContainer">
-                    <!--Events are loaded in here now as list items-->
-                </div></div>
 
-        <div id="eventCreator" class="container-fluid navEvent0" style="display: none;"> <!--Event Creator page, used to create events in the firestoreDB-->
-            <div class="form-group">
-                    <label for="text">Event Name: </label>
-                    <input type="text" class="form-control" id="newEventName">
-                    <label for="text">Event Description: </label>
-                    <input type="text" class="form-control" id="newEventDescr">
 
-                    <!--Start Day and time:-->
-                    <label for="text">Event Start Time: </label>
-                    <input type="date" class="form-control" id="newEventStartTime">
-                    <label for="text">Event End Time: </label>
-                    <input type="date" class="form-control" id="newEventEndTime">
 
-                    <div class="btn btn-default  btn-block" onclick="submitEvent()">Create</div>
-            </div></div>
+    <!--Event Feed Page, this is just an empty container to dump info into dynamically-->
+    <!-- <div class="btn btn-default  btn-block" onclick="getEvents()">Load Events</div> <-- Demo button for loading events, keep this for troubleshooting-->
+    <div id="events" onload="GetEvents()">
+        <div id="eventContainer">
+            <!--Events are loaded in here now as list items-->
+        </div>
+    </div>
 
-        <div id="nfcCheckIn" class="container-fluid navEvent0" style="display: none;"> <!--NFC check-in Page-->
+
+
+
+    <!--Event Creator page, used to create events in the firestoreDB-->
+    <div id='eventcreate'>
+        <div class="form-group">
+            <label for="text">Event Name: </label>
+            <input type="text" class="form-control" id="newEventName">
+            <label for="text">Event Description: </label>
+            <input type="text" class="form-control" id="newEventDescr">
+
+            <!--Start Day and time:-->
+            <label for="text">Event Start Time: </label>
+            <input type="date" class="form-control" id="newEventStartTime">
+            <label for="text">Event End Time: </label>
+            <input type="date" class="form-control" id="newEventEndTime">
+
+            <div class="btn btn-default  btn-block" onclick="SubmitEvent()">Create</div>
+        </div>
+    </div>
+
+
+
+
+    <!--NFC check-in Page-->
+    <div id="nfccheckin">
+        
         <h1>NFC Check page</h1><br />
         <div id="printNDEFDIV">No data here yet</div>
         <!-- <button onclick="checkEnabled()"class="btn btn-default  btn-block">Check if NFC enabled</button>
         <button onclick="showSett()"class="btn btn-default  btn-block">Open device NFC settings</button> -->
-        </div>
-</body></html>
+    </div>
+</body>
+
+</html>
