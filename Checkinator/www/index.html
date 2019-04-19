@@ -38,8 +38,8 @@
     <!--Main navbar, hidden on login page, shown everywhere else-->
     <div id="nav" class="navbar navbar-default">
         <div class="nav-items">
-            <div><a onclick="navigate('profile'); GetUIDProfile();">Profile</a></div>
-            <div><a onclick="navigate('events');GetEvents();">Events</a></div> 
+            <div><a onclick="navigate('profile'); GetProfile();">Profile</a></div>
+            <div><a onclick="navigate('events'); GetEvents();">Events</a></div>
             <div><a onclick="navigate('nfccheckin')">Check-In</a></div>
         </div>
     </div>
@@ -75,7 +75,7 @@
                 <label for="pwd">Enter a Password:</label>
                 <input type="password" class="form-control" id="signupPasswd">
             </div>
-<!--             <div class="form-group"> This is going to be a confirm-password field (maybe use jquery for that?)
+            <!--             <div class="form-group"> This is going to be a confirm-password field (maybe use jquery for that?)
                 <label for="pwd">Enter a Password:</label>
                 <input type="password" class="form-control" id="signupPasswd">
             </div> -->
@@ -101,7 +101,7 @@
 
 
 
-
+    
     <!--Profile Page-->
     <div class="container-fluid" id="profile">
         <div class="jumbotron">
@@ -122,7 +122,7 @@
 
     <!--Event Feed Page, this is just an empty container to dump info into dynamically-->
     <!-- <div class="btn btn-default  btn-block" onclick="getEvents()">Load Events</div>-->
-    <div  class="container-fluid" id="events">
+    <div class="container-fluid" id="events">
         <div id="eventContainer">
             <!--Events are loaded in here now as BS3 Panels-->
         </div>
@@ -138,10 +138,10 @@
             <input type="text" class="form-control" id="newEventName"><br />
             <label for="text">Event Description: </label>
             <input type="text" class="form-control" id="newEventDescr"><br />
-            <label for="text">Start Time: </label> 
+            <label for="text">Start Time: </label>
             <input type="date" class="form-control" id="newEventStartDate"><br />
             <input type="time" class="form-control" id="newEventStartTime"><br />
-            <label for="text">End Time: </label> 
+            <label for="text">End Time: </label>
             <input type="date" class="form-control" id="newEventEndDate"><br />
             <input type="time" class="form-control" id="newEventEndTime"><br />
             <br /><br /><br />
@@ -153,7 +153,7 @@
 
 
     <!--NFC check-in Page-->
-    <div  class="container-fluid" id="nfccheckin">
+    <div class="container-fluid" id="nfccheckin">
         <h1>NFC Check page</h1><br />
         <div id="tagContentOutput">No data here yet</div>
         <!-- <button onclick="checkEnabled()"class="btn btn-default  btn-block">Check if NFC enabled</button>

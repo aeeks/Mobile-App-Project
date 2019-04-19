@@ -64,14 +64,16 @@ function SignupUser() { //create user account
 }
 
 //Retrieve user data from firestore based on current user ID:
-function GetUIDProfile() { 
+function GetProfile() { 
     //Clear any prev data:
     document.getElementById("profPointsDisp").innerHTML = "";
     document.getElementById("profEmailDisp").innerHTML = "";
-    firestore.collection('events').get(auth.uid).then(snapshot => {
+    
+    firestore.collection('users').doc(auth.currentUser.uid).get().then(doc => {
+        console.log(doc.data());
         document.getElementById("profPointsDisp").innerHTML = doc.data().points;
         document.getElementById("profEmailDisp").innerHTML = doc.data().email;
-        document.getElementById("profPicDisplay").appendChild(doc.data().photoURL);
+        document.getElementById("profPicDisplay").src = doc.data().photoURL;
     });
 }
 
