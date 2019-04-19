@@ -52,7 +52,7 @@ function SignupUser() { //create user account
             password: signupPasswd.value, 
             fName: signupFname.value, 
             lName: signupLname.value, 
-            points: 125,
+            points: 0,
             photoURL: 'https://alexmageecom.files.wordpress.com/2019/02/0-1.jpg'
         })
     }).catch(function (error) { //Maybe dont use auth, it might be easier to just use database as auth and firestore are 2 different things 
