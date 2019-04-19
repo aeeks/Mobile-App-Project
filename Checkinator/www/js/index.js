@@ -24,16 +24,25 @@ var app = {
     },
 
     onNdef: function (nfcEvent) {
-        alert(JSON.stringify(nfcEvent.tag));
+
+        //example for printing event details from tag to screen 
+        var tag = nfcEvent.tag;
+        var tagId = nfc.bytesToHexString(tag.id);
+        navigator.notification.alert(tagId);
+        var y=document.getElementById("tagContentOutput");
+        y.innerHTML = tagId;
+
+
+        /* alert(JSON.stringify(nfcEvent.tag)); */
         var tag = nfcEvent.tag;
         // Android specific conversions: 
-        if (tag.serialNumber) {
+/*         if (tag.serialNumber) {
             tag.id = tag.serialNumber;
             tag.isWritable = !tag.isLocked;
             tag.canMakeReadOnly = tag.isLockable;
         }
-        navigator.notification.vibrate(100);
-                
+        navigator.notification.vibrate(100); */
+
     },
 }
 
