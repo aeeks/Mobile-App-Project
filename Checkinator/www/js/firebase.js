@@ -46,11 +46,32 @@ function SignupUser() { //create user account
     var signupLname = document.getElementById('signupLname');
     console.log(" Entered Email: " + signupEmail.value + " Entered Password: " + signupPasswd.value);
 
-    firebase.auth().createUserWithEmailAndPassword(signupEmail.value, signupPasswd.value).catch(function (error) { //Maybe dont use auth, it might be easier to just use database as auth and firestore are 2 different things 
+    firebase.auth().createUserWithEmailAndPassword(signupEmail.value, signupPasswd.value).then(cred => {
+        return firestore.collection('users').doc(cred.user.uid).set({
+            email: signupEmail.value, 
+            password: signupPasswd.value, 
+            fName: signupFname.value, 
+            lName: signupLname.value, 
+            points: 125,
+            photoURL: 'https://alexmageecom.files.wordpress.com/2019/02/0-1.jpg'
+        })
+    }).catch(function (error) { //Maybe dont use auth, it might be easier to just use database as auth and firestore are 2 different things 
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
         window.alert("Error: " + error.message);
+    });
+}
+
+//Retrieve user data from firestore based on current user ID:
+function GetUIDProfile() { 
+    //Clear any prev data:
+    document.getElementById("profPointsDisp").innerHTML = "";
+    document.getElementById("profEmailDisp").innerHTML = "";
+    firestore.collection('events').get(auth.uid).then(snapshot => {
+        document.getElementById("profPointsDisp").innerHTML = doc.data().points;
+        document.getElementById("profEmailDisp").innerHTML = doc.data().email;
+        document.getElementById("profPicDisplay").appendChild(doc.data().photoURL);
     });
 }
 
@@ -91,7 +112,7 @@ function GetEvents() {
                 var eventBody = '<div class="panel-body"><h2>' + doc.data().eventName + '</h2><h3> ' + doc.data().eventDescr + '</h3><p><strong>Start Time: </strong>' + eventStarting + '<br /><strong>End Time: </strong>' + eventEnding  + '</p></div>';
                 var eventContainer = document.getElementById("eventContainer"); 
                 var eventItem = document.createElement("div"); 
-                eventItem.setAttribute("class", "panel panel-default") 
+                eventItem.setAttribute("class", "panel panel-default");
                 eventItem.innerHTML = eventBody; 
                 eventContainer.appendChild(eventItem); 
              }

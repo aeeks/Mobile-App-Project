@@ -76,3 +76,6 @@ function navigate(pageName) {
     newPage = document.getElementById(pageName);
     newPage.style.display = 'block';
 }
+
+
+app.initialize();
