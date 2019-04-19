@@ -49,7 +49,7 @@ function SignupUser() { //create user account
     firebase.auth().createUserWithEmailAndPassword(signupEmail.value, signupPasswd.value).then(cred => {
         return firestore.collection('users').doc(cred.user.uid).set({
             email: signupEmail.value, 
-            password: signupPasswd.value, 
+            //Dont Store Passwords. 
             fName: signupFname.value, 
             lName: signupLname.value, 
             points: 0,
@@ -123,7 +123,8 @@ function GetEvents() {
     })
 }
 
-//Updates the user's points
+//Updates the user's points by the specified integer parameter.
+//Use when someone is confirmed at an event.
 function AddPoints(points) {
     alert('test');
     var user = auth.currentUser;
