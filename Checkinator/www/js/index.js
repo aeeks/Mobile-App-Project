@@ -32,7 +32,8 @@ var app = {
             tag.isWritable = !tag.isLocked;
             tag.canMakeReadOnly = tag.isLockable;
         }
-        navigator.notification.vibrate(100);        
+        navigator.notification.vibrate(100);
+                
     },
 }
 

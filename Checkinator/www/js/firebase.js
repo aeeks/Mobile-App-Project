@@ -77,6 +77,8 @@ function SubmitEvent() { //Triggered by the "submit event button"
 }
 
 function GetEvents() {
+    document.getElementById("eventContainer").innerHTML = "";
+    console.clear();
     var RightNow = Date.now();
     console.log("now: " + RightNow);
     firestore.collection('events').get().then(snapshot => {
