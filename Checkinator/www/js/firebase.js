@@ -99,3 +99,17 @@ function GetEvents() {
         })
     })
 }
+
+//Updates the user's points
+function AddPoints(points) {
+    alert('test');
+    var user = auth.currentUser;
+    var userDoc = firestore.collection('users').doc(user.uid);
+    userDoc.update({
+        points: points
+    }).then(() => {
+        //The points were updated.
+    }).catch(() => {
+        //Something went wrong.
+    });
+}
