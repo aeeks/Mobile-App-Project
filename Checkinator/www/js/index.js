@@ -12,15 +12,35 @@ var app = {
         function failure(reason) {
             navigator.notification.alert(reason, function() {}, "NFC Error");
         }
-        //Listen for tags with type "text/upb"
+        //Listen for tags with type "text/upb", setting all possible listeners so that the default Android tag program doesnt steal focus...
         nfc.addMimeTypeListener(
             'text/upb',
             app.onNdef,
             function() {
-                console.log("NFC Listening");
+                console.log("NFC Good");
             },
             failure
         );
+
+        nfc.addTagDiscoveredListener(
+            /* app.onNfc, */
+            app.onNdef,
+            function() {
+                console.log("Listening for non-NDEF tags.");
+            },
+            failure
+        );
+
+        nfc.addNdefListener(
+            app.onNdef,
+            function() {
+                console.log("Listening for NDEF tags.");
+            },
+            failure
+        );
+
+
+
     },
 
     onNdef: function (nfcEvent) {
