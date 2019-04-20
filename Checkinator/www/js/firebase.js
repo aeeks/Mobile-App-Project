@@ -9,6 +9,7 @@ auth.onAuthStateChanged(user => { //This manages auth, if user is signed in, app
     if (user) {
         console.log("AUTH check: " + user.uid);
         navigate('profile');
+        GetProfile();
         nav.style.display = 'block';
     } else {
         console.log("AUTH check: No user signed in");

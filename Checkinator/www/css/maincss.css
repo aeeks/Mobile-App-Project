@@ -8,20 +8,39 @@
   /* This is the ultimate CSS debugger for Cordova. */
   /* border: 1px solid red; */
 }
+html { 
+  background-color: #cdb87d;
+}
+body { 
+  background-color: #cdb87d;
+}
+
 #nav {
   width: 100vw;
+  background-color: #1c2957;
+  margin-bottom: 0;
 }
+
 .nav-items{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center; 
-    padding: 20px 0 10px 0;
+    padding: 20px 0 20px 0;
     box-shadow: 0px -1px 2px 1px black;
 }
 
+.nav-items div a { 
+  color: white;
+  text-decoration: none;
+}
 
-.jumbotron img { /* this fixes the image centering on the profile page */
+.profiledisplay  {
+  background-color: #1c2957;
+  border-radius: 3px;
+}
+
+.profiledisplay img { /* this fixes the image centering on the profile page */
     display:block;
     margin-left:auto;
     margin-right:auto;
@@ -29,4 +48,24 @@
 
 .profileStats { 
   text-align: center;
+  padding-bottom: 25px;
+  color: white;
+}
+
+.appPage { 
+  width: 100vw;
+  height: 85vh;
+  background-color: #cdb87d;
+}
+
+.btn { 
+  height: 50px;
+  background-color: #1c2957;
+  color: white;
+}
+
+.panel-body { 
+  background-color: #1c2957;
+  color: white;
+  border-radius: 3px;
 }

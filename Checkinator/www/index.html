@@ -36,7 +36,7 @@
 <body>
 
     <!--Main navbar, hidden on login page, shown everywhere else-->
-    <div id="nav" class="navbar navbar-default">
+    <div id="nav" class="navbar">
         <div class="nav-items">
             <div><a onclick="navigate('profile'); GetProfile();">Profile</a></div>
             <div><a onclick="navigate('events'); GetEvents();">Events</a></div>
@@ -46,7 +46,7 @@
 
 
     <!--Login Page-->
-    <div class="container-fluid" id="login">
+    <div class="container-fluid appPage" id="login">
         <div id="loginDIV">
             <div class="form-group">
                 <label for="email">Pitt Email:</label>
@@ -65,7 +65,7 @@
 
 
     <!--Signup Page-->
-    <div class="container-fluid" id="signup">
+    <div class="container-fluid appPage" id="signup">
         <div id="signupDIV">
             <div class="form-group">
                 <label for="email">Your Pitt Email:</label>
@@ -103,26 +103,28 @@
 
     
     <!--Profile Page-->
-    <div class="container-fluid" id="profile">
-        <div class="jumbotron">
+    <div class="container appPage" id="profile"><br />
+        <div class="profiledisplay container">
+            <br />
             <img src="img/generic-profile-picture.png" class="img-circle img-responsive" id="profPicDisplay"><br />
             <!-- Profile Picture placeholder, we need to make this load dynamically tho-->
             <div class="row profileStats">
                 <div class="col-xs-6" id="profPointsDisp">POINTS DISPLAY</div>
-                <div class="col-xs-6" id="profEmailDisp">FIRST NAME</div>
+                <div class="col-xs-6" id="profEmailDisp">FIRST NAME</div><br />
             </div>
         </div>
-        <div class="btn btn-default  btn-block">Edit Profile</div>
-        <div class="btn btn-default  btn-block" onclick="navigate('eventcreate')">Create an Event</div>
-        <div class="btn btn-default  btn-block" onclick="SignOutUser()">Log Out</div>
+        <div><br />
+            <div class="btn btn-block">Edit Profile</div>
+            <div class="btn btn-block" onclick="navigate('eventcreate')">Create an Event</div>
+            <div class="btn btn-block" onclick="SignOutUser()">Log Out</div>
+        </div>
     </div>
 
 
 
 
-    <!--Event Feed Page, this is just an empty container to dump info into dynamically-->
-    <!-- <div class="btn btn-default  btn-block" onclick="getEvents()">Load Events</div>-->
-    <div class="container-fluid" id="events">
+    <!--Event Feed Page-->
+    <div class="container-fluid appPage" id="events"><br />
         <div id="eventContainer">
             <!--Events are loaded in here now as BS3 Panels-->
         </div>
@@ -131,21 +133,21 @@
 
 
 
-    <!--Event Creator page, used to create events in the firestoreDB-->
-    <div class="container-fluid" id='eventcreate'>
+    <!--Event Creator page-->
+    <div class="container-fluid appPage" id='eventcreate'>
         <div class="form-group">
             <label for="text">Event Name: </label>
-            <input type="text" class="form-control" id="newEventName"><br />
+                <input type="text" class="form-control" id="newEventName"><br />
             <label for="text">Event Description: </label>
-            <input type="text" class="form-control" id="newEventDescr"><br />
+                <input type="text" class="form-control" id="newEventDescr"><br />
             <label for="text">Start Time: </label>
-            <input type="date" class="form-control" id="newEventStartDate"><br />
-            <input type="time" class="form-control" id="newEventStartTime"><br />
+                <input type="date" class="form-control" id="newEventStartDate"><br />
+                <input type="time" class="form-control" id="newEventStartTime"><br />
             <label for="text">End Time: </label>
-            <input type="date" class="form-control" id="newEventEndDate"><br />
-            <input type="time" class="form-control" id="newEventEndTime"><br />
+                <input type="date" class="form-control" id="newEventEndDate"><br />
+                <input type="time" class="form-control" id="newEventEndTime"><br />
             <br /><br /><br />
-            <div class="btn btn-default  btn-block" onclick="SubmitEvent()">Create</div>
+            <div class="btn btn-block" onclick="SubmitEvent()">Create</div>
         </div>
     </div>
 
@@ -153,7 +155,7 @@
 
 
     <!--NFC check-in Page-->
-    <div class="container-fluid" id="nfccheckin">
+    <div class="container-fluid appPage" id="nfccheckin"><br />
         <h1>NFC Check page</h1><br />
         <div id="tagContentOutput">No data here yet</div>
         <!-- <button onclick="checkEnabled()"class="btn btn-default  btn-block">Check if NFC enabled</button>
