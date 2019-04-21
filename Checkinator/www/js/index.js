@@ -7,7 +7,7 @@ var app = {
     },
 
     deviceready: function() {
-        console.log("Device Ready");
+        /* console.log("Device Ready"); */
         navigate('login');
         function failure(reason) {
             navigator.notification.alert(reason, function() {}, "NFC Error");
@@ -39,30 +39,32 @@ var app = {
             failure
         );
 
-
-
     },
 
-    onNdef: function (nfcEvent) {
-
-        //example for printing event details from tag to screen 
-        var tag = nfcEvent.tag;
-        var tagId = nfc.bytesToHexString(tag.id);
-        navigator.notification.alert(tagId);
-        var y=document.getElementById("tagContentOutput");
-        y.innerHTML = tagId;
-
-
-        /* alert(JSON.stringify(nfcEvent.tag)); */
-        var tag = nfcEvent.tag;
-        // Android specific conversions: 
-/*         if (tag.serialNumber) {
-            tag.id = tag.serialNumber;
-            tag.isWritable = !tag.isLocked;
-            tag.canMakeReadOnly = tag.isLockable;
-        }
-        navigator.notification.vibrate(100); */
-
+    onNdef: function (nfcEvent) { //This listener typically works
+        //Translate Payload: 
+        var tag = nfcEvent.tag; //Maybe dont need this? leave for now tho 
+        var tagMsg = nfcEvent.tag.ndefMessage[0]["payload"];
+        var decodedMsg = nfc.bytesToString(tagMsg);
+        /* alert("Tag Payload: " + decodedMsg); */
+ 
+        var eventRef = firestore.collection('event_visits').doc(decodedMsg);
+        //check if event exists: 
+        eventRef.get()
+            .then((docSnapshot) => {
+                if (docSnapshot.exists) {
+                eventRef.onSnapshot((doc) => {
+                    var visitName = doc.data().event;
+                    var user = auth.currentUser.toString();
+                    alert("Checked into event: " + visitName);//still need to check user checkin status 
+                    /* firestore.collection('event_visits').doc(decodedMsg).set(currentUserRef, { merge: true }); */
+                    firestore.collection('event_visits').doc(decodedMsg).set({uid: user.value});
+                });
+                } 
+                else {
+                    alert("No event matches this tag");
+                }
+        });
     },
 }
 
@@ -76,6 +78,5 @@ function navigate(pageName) {
     newPage = document.getElementById(pageName);
     newPage.style.display = 'block';
 }
-
 
 app.initialize();

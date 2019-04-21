@@ -1,7 +1,6 @@
 Current (4-18-19/4PM): 
 
 //Auth: 
--How to store/retrieve user points in firestore? 
 -Pitt Email auth/confirming account creation with @pitt.edu
 
 //Event Check-in: 
@@ -9,7 +8,7 @@ Current (4-18-19/4PM):
 
 //Event Creation: 
 -Need a button (on profile) to return "My events" (created by currentUser) and be able to modify, delete events
--Sort Events by time now - time start (soonest occuring)
+-Sort Events by something
 
 //UIDesign: 
 -Backgrounds, Theme, Colors

@@ -86,8 +86,9 @@ function SubmitEvent() { //Triggered by the "submit event button"
     var startDate = new Date(newEventStartTime).getTime();
     var newEventEndTime = (document.getElementById('newEventEndDate').value + 'T' + document.getElementById('newEventEndTime').value + 'Z');
     var endDate = new Date(newEventEndTime).getTime();
-    var createTime = Date.now(); //Shows timestamp of when event was submitted
-    firestore.collection('events').doc().set({
+    var createTime = Date.now(); //Shows timestamp of when event was submitted, and also functions as the Unique ID of the event 
+    var eventID = createTime.toString(); //Need to convert to a string else firebase throws errors
+    firestore.collection('events').doc(eventID).set({
         eventName: eventName.value,
         eventDescr: eventDescr.value,
         eventStartTime: startDate,
@@ -95,23 +96,32 @@ function SubmitEvent() { //Triggered by the "submit event button"
         createdBy: auth.currentUser.uid, 
         createdTime: createTime
     });
+
+    //Create a DB entry to later check/set attendance from event_visits table:
+    firestore.collection('event_visits').doc(eventID).set({
+        event: eventName.value
+    });
+
+    //Write a tag that corresponds to the Event now (based on the Unique event ID/createTime string var): 
+
     //Return to events page after event creation:
-    GetEvents();
     navigate('events'); 
+    GetEvents();
 }
 
 function GetEvents() {
     document.getElementById("eventContainer").innerHTML = "";
     console.clear();
     var RightNow = Date.now();
-    console.log("now: " + RightNow);
+    console.log("Time now: " + RightNow);
     firestore.collection('events').get().then(snapshot => {
         snapshot.forEach(doc => {
             var eventStarting = new Date(doc.data().eventStartTime);
             var eventEnding = new Date(doc.data().eventEndTime);
             var checkEndTime = eventEnding.getTime();
             console.log("Eventendtime: " + eventEnding);
-            if (checkEndTime - RightNow < 0) { 
+            if (RightNow - checkEndTime < 0) { //Sorting by end times
+                console.log("Event: " + doc.data().eventName + " was printed to the screen.");
                 var eventBody = '<div class="panel-body"><h2>' + doc.data().eventName + '</h2><h3> ' + doc.data().eventDescr + '</h3><p><strong>Start Time: </strong>' + eventStarting + '<br /><strong>End Time: </strong>' + eventEnding  + '</p></div>';
                 var eventContainer = document.getElementById("eventContainer"); 
                 var eventItem = document.createElement("div"); 
@@ -129,7 +139,7 @@ function GetEvents() {
 //Updates the user's points by the specified integer parameter.
 //Use when someone is confirmed at an event.
 function AddPoints(points) {
-    alert('test');
+    alert('Adding points');
     var user = auth.currentUser;
     var userDoc = firestore.collection('users').doc(user.uid);
     userDoc.update({
