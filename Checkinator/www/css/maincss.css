@@ -3,14 +3,17 @@
 * {
   padding:0;
   margin:0;
+  font-family: Helvetica, sans-serif;
 
 
   /* This is the ultimate CSS debugger for Cordova. */
   /* border: 1px solid red; */
 }
+
 html { 
   background-color: #cdb87d;
 }
+
 body { 
   background-color: #cdb87d;
 }
@@ -56,16 +59,25 @@ body {
   width: 100vw;
   height: 85vh;
   background-color: #cdb87d;
-}
-
-.btn { 
-  height: 50px;
-  background-color: #1c2957;
-  color: white;
+  margin-top: 50px;
 }
 
 .panel-body { 
   background-color: #1c2957;
   color: white;
   border-radius: 3px;
+  box-shadow: 0px -1px 2px 1px black;
+}
+
+.upbBtn { 
+  background-color: #1c2957;
+  border-radius: 3px;
+  margin: 5px 0 0 0;
+}
+
+.upbBtn p { 
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
 }

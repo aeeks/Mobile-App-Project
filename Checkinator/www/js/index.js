@@ -7,12 +7,10 @@ var app = {
     },
 
     deviceready: function() {
-        /* console.log("Device Ready"); */
         navigate('login');
         function failure(reason) {
             navigator.notification.alert(reason, function() {}, "NFC Error");
         }
-        //Listen for tags with type "text/upb", setting all possible listeners so that the default Android tag program doesnt steal focus...
         nfc.addMimeTypeListener(
             'text/upb',
             app.onNdef,
@@ -41,30 +39,36 @@ var app = {
 
     },
 
-    onNdef: function (nfcEvent) { //This listener typically works
-        //Translate Payload: 
-        var tag = nfcEvent.tag; //Maybe dont need this? leave for now tho 
+    onNdef: function (nfcEvent) { 
         var tagMsg = nfcEvent.tag.ndefMessage[0]["payload"];
         var decodedMsg = nfc.bytesToString(tagMsg);
-        /* alert("Tag Payload: " + decodedMsg); */
- 
-        var eventRef = firestore.collection('event_visits').doc(decodedMsg);
-        //check if event exists: 
-        eventRef.get()
-            .then((docSnapshot) => {
-                if (docSnapshot.exists) {
-                eventRef.onSnapshot((doc) => {
-                    var visitName = doc.data().event;
-                    var user = auth.currentUser.toString();
-                    alert("Checked into event: " + visitName);//still need to check user checkin status 
-                    /* firestore.collection('event_visits').doc(decodedMsg).set(currentUserRef, { merge: true }); */
-                    firestore.collection('event_visits').doc(decodedMsg).set({uid: user.value});
-                });
-                } 
-                else {
-                    alert("No event matches this tag");
+        var user = auth.currentUser;
+        //firstore event_visits: 
+        var eventDoc = firestore.collection('event_visits').doc(decodedMsg);//only for If statement
+        //firestore event_visits:UID collection: 
+        var attendColl = firestore.collection('event_visits').doc(decodedMsg).collection(user.uid); //only for If statement pt.2
+        //Check, Check, Add pts/record
+        eventDoc.get()
+            .then((eventExist) => { //check if event that tag references  exists
+                if (eventExist.exists) { 
+                    attendColl.get()
+                        .then((attendColl) => { //check if the user has already checked into the event that exists
+                            if (attendColl.exists) { 
+                                alert("You have already been checked into this event.");
+                            }
+                            else {
+                                //add user to collection and give points
+                                alert("You have been checked into the event!");
+                                //eventDoc.collection(user.uid).set(); //Create user entry into event_visits here 
+                                firestore.collection('event_visits').doc(decodedMsg).collection(user.uid).doc("attend").set({attend: '1'});
+                                AddPoints(1);//Each event currently worth 1 point
+                            }
+                        });
                 }
-        });
+                else {alert("This tag is not currently used by any event.");}
+            });
+
+
     },
 }
 

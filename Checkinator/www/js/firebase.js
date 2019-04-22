@@ -142,11 +142,13 @@ function AddPoints(points) {
     alert('Adding points');
     var user = auth.currentUser;
     var userDoc = firestore.collection('users').doc(user.uid);
+    var userPoints = userDoc.points;
+    var newPoints = points + userPoints;
     userDoc.update({
-        points: points
+        points: newPoints
     }).then(() => {
         //The points were updated.
     }).catch(() => {
-        //Something went wrong.
+        alert("Error adding points");
     });
 }
