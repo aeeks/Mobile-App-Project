@@ -7,15 +7,14 @@ Current (4-22-2019/8PM):
 -edit events button (not needed if we dont have time tho) 
 
 //Profile: 
--Add feature to set a profile picture from phone (by clicking on the profile picture placeholder) 
+-Add feature to set a profile picture from phone (by clicking on the profile picture placeholder) (Also optional based on time)
 
 //General CSS: 
--Remove the white bars that appear on pages 
--Some pages dont fit on phone, need to size pages responsively
+-Polish
 
 //Firestore tasks: 
 -Add points incrementally
--Set a record of users that have attended specific events (in event_visits) 
+-Set a record of users that have attended specific events (in event_visits, its in a collection in each event's Doc) 
 
 //Advertisement: 
 -Need screenshots, features list, icons, Android store stuff  

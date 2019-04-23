@@ -3,7 +3,6 @@ const auth = firebase.auth();
 
 //This file shall be responsible for anything that involve firebase.
 
-
 auth.onAuthStateChanged(user => { //This manages auth, if user is signed in, app is useable, if no user, app is returned to login/welcome screen
     var nav = document.getElementById('nav');
     if (user) {
@@ -72,7 +71,7 @@ function GetProfile() {
     
     firestore.collection('users').doc(auth.currentUser.uid).get().then(doc => {
         console.log(doc.data());
-        document.getElementById("profPointsDisp").innerHTML = doc.data().points;
+        document.getElementById("profPointsDisp").innerHTML = doc.data().points + " Points";
         document.getElementById("profEmailDisp").innerHTML = doc.data().email;
         document.getElementById("profPicDisplay").src = doc.data().photoURL;
     });
@@ -103,11 +102,12 @@ function SubmitEvent() { //Triggered by the "submit event button"
     });
 
     //Write a tag that corresponds to the Event now (based on the Unique event ID/createTime string var): 
-    //Caution: Overwrites tags without warning 
-    var mimeType = "text/upb",
+    //Caution: Overwrites tags without warning, unused for now 
+
+/*     var mimeType = "text/upb",
     payload = eventID,
     record = ndef.mimeMediaRecord(mimeType, nfc.stringToBytes(payload));
-    nfc.write([record], function () {alert("Write Successful!");}, );  
+    nfc.write([record], function () {alert("Write Successful!");}, );   */
 
     //Return to events page after event creation:
     navigate('events'); 
@@ -147,7 +147,7 @@ function AddPoints(points) {
     alert('Adding points');
     var user = auth.currentUser;
     var userDoc = firestore.collection('users').doc(user.uid);
-    var userPoints = userDoc.points;
+    var userPoints = userDoc.data().points;
     var newPoints = points + userPoints;
     userDoc.update({
         points: newPoints

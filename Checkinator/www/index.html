@@ -45,14 +45,15 @@
 
     <!--Login Page-->
     <div class="container-fluid appPage" id="login">
-        <div id="loginDIV">
+        <div id="loginDIV" class="navContentFix">
+            <img src="img/demoLogo.png" class="img-responsive loginLogo"><br />
             <div class="form-group">
                 <label for="email">Pitt Email:</label>
-                <input type="text" class="form-control" id="userEmail">
+                <input type="text" class="form-control input-lg" id="userEmail">
             </div>
             <div class="form-group">
                 <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="userPasswd">
+                <input type="password" class="form-control input-lg" id="userPasswd">
             </div>
             <div class="upbBtn" onclick="LoginUser()"><p>Login</p></div>
             <div class="upbBtn" onclick="navigate('signup')"><p>Signup</p></div>
@@ -62,14 +63,14 @@
 
     <!--Signup Page-->
     <div class="container-fluid appPage" id="signup">
-        <div id="signupDIV">
+        <div id="signupDIV" class="navContentFix">
             <div class="form-group">
                 <label for="email">Your Pitt Email:</label>
-                <input type="text" class="form-control" id="signupEmail">
+                <input type="text" class="form-control input-lg" id="signupEmail">
             </div>
             <div class="form-group">
                 <label for="pwd">Enter a Password:</label>
-                <input type="password" class="form-control" id="signupPasswd">
+                <input type="password" class="form-control input-lg" id="signupPasswd">
             </div>
             <!--             <div class="form-group"> This is going to be a confirm-password field (maybe use jquery for that?)
                 <label for="pwd">Enter a Password:</label>
@@ -77,20 +78,12 @@
             </div> -->
             <div class="form-group">
                 <label for="pwd">First Name:</label>
-                <input type="text" class="form-control" id="signupFname">
+                <input type="text" class="form-control input-lg" id="signupFname">
             </div>
             <div class="form-group">
                 <label for="pwd">Last Name:</label>
-                <input type="text" class="form-control" id="signupLname">
-            </div>
-            <!-- <div class="dropdown"> dropdown menu for selecting  user type
-                            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">I am...
-                            <span class="caret"></span></button>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                              <li role="presentation"><a role="menuitem" onclick="setUserType()">User</a></li>
-                              <li role="presentation"><a role="menuitem" onclick="setUserType()">Admin</a></li>
-                            </ul>
-                          </div> --><br />
+                <input type="text" class="form-control input-lg" id="signupLname">
+            </div><br />
             <div class="upbBtn" onclick="SignupUser()"><p>Create Account</p></div>
         </div>
     </div>
@@ -98,9 +91,9 @@
 
     <!--Profile Page-->
     <div class="container appPage" id="profile"><br />
-        <div class="profiledisplay container">
+        <div class="profiledisplay container navContentFix">
             <br />
-            <img src="img/generic-profile-picture.png" class="img-circle img-responsive" id="profPicDisplay"><br />
+            <img src="img/generic-profile-picture.png" class="img-circle img-responsive" id="profPicDisplay" height="250" width="250"><br />
             <!-- Profile Picture placeholder, we need to make this load dynamically tho-->
             <div class="row profileStats">
                 <div class="col-xs-6" id="profPointsDisp">POINTS DISPLAY</div>
@@ -117,7 +110,7 @@
 
     <!--Event Feed Page-->
     <div class="container-fluid appPage" id="events"><br />
-        <div id="eventContainer">
+        <div id="eventContainer"  class="navContentFix">
             <!--Events are loaded in here now as BS3 Panels-->
         </div>
     </div>
@@ -125,17 +118,17 @@
 
     <!--Event Creator page-->
     <div class="container-fluid appPage" id='eventcreate'><br />
-        <div class="form-group">
+        <div class="form-group navContentFix">
             <label for="text">Event Name: </label>
-                <input type="text" class="form-control" id="newEventName"><br />
+                <input type="text" class="form-control input-lg" id="newEventName">
             <label for="text">Event Description: </label>
-                <input type="text" class="form-control" id="newEventDescr"><br />
+                <input type="text" class="form-control input-lg" id="newEventDescr">
             <label for="text">Start Time: </label>
-                <input type="date" class="form-control" id="newEventStartDate"><br />
-                <input type="time" class="form-control" id="newEventStartTime"><br />
+                <input type="date" class="form-control input-lg" id="newEventStartDate">
+                <input type="time" class="form-control input-lg" id="newEventStartTime">
             <label for="text">End Time: </label>
-                <input type="date" class="form-control" id="newEventEndDate"><br />
-                <input type="time" class="form-control" id="newEventEndTime"><br />
+                <input type="date" class="form-control input-lg" id="newEventEndDate">
+                <input type="time" class="form-control input-lg" id="newEventEndTime">
             <br />
             <div class="upbBtn" onclick="SubmitEvent()"><p>Create</p></div>
         </div>
@@ -143,8 +136,8 @@
 
 
     <!--NFC check-in Page-->
-    <div class="container-fluid appPage" id="nfccheckin"><br /><br /><br />
-        <h4>Simply place your phone near the tag, and wait for the confirmation message!</h4><br /><br /><br />
+    <div class="container-fluid appPage " id="nfccheckin"><br />
+        <h4 class="navContentFix">Simply place your phone onto the tag, and wait for the confirmation message!</h4><br />
         <img class="img-responsive" src="img/demoNFCScreen.png">
     </div>
 
