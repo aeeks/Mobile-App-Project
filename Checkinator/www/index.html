@@ -91,7 +91,7 @@
 
     <!--Profile Page-->
     <div class="container appPage" id="profile"><br />
-        <div class="profiledisplay container navContentFix">
+        <div class="profiledisplay navContentFix">
             <br />
             <img src="img/generic-profile-picture.png" class="img-circle img-responsive" id="profPicDisplay" height="250" width="250"><br />
             <!-- Profile Picture placeholder, we need to make this load dynamically tho-->
@@ -120,15 +120,15 @@
     <div class="container-fluid appPage" id='eventcreate'><br />
         <div class="form-group navContentFix">
             <label for="text">Event Name: </label>
-                <input type="text" class="form-control input-lg" id="newEventName">
+                <input type="text" class="form-control input-lg eventCreatorInputs" id="newEventName">
             <label for="text">Event Description: </label>
-                <input type="text" class="form-control input-lg" id="newEventDescr">
+                <input type="text" class="form-control input-lg eventCreatorInputs" id="newEventDescr">
             <label for="text">Start Time: </label>
-                <input type="date" class="form-control input-lg" id="newEventStartDate">
-                <input type="time" class="form-control input-lg" id="newEventStartTime">
+                <input type="date" class="form-control input-lg eventCreatorInputs" id="newEventStartDate">
+                <input type="time" class="form-control input-lg eventCreatorInputs" id="newEventStartTime">
             <label for="text">End Time: </label>
-                <input type="date" class="form-control input-lg" id="newEventEndDate">
-                <input type="time" class="form-control input-lg" id="newEventEndTime">
+                <input type="date" class="form-control input-lg eventCreatorInputs" id="newEventEndDate">
+                <input type="time" class="form-control input-lg eventCreatorInputs" id="newEventEndTime">
             <br />
             <div class="upbBtn" onclick="SubmitEvent()"><p>Create</p></div>
         </div>

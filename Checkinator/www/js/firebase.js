@@ -121,8 +121,8 @@ function GetEvents() {
     console.log("Time now: " + RightNow);
     firestore.collection('events').get().then(snapshot => {
         snapshot.forEach(doc => {
-            var eventStarting = new Date(doc.data().eventStartTime);
-            var eventEnding = new Date(doc.data().eventEndTime);
+            var eventStarting = new Date((doc.data().eventStartTime));
+            var eventEnding = new Date((doc.data().eventEndTime));
             var checkEndTime = eventEnding.getTime();
             console.log("Eventendtime: " + eventEnding);
             if (RightNow - checkEndTime < 0) { //Sorting by end times

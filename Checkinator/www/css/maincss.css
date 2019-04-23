@@ -42,6 +42,8 @@ body {
 .profiledisplay  {
   background-color: #1c2957;
   border-radius: 3px;
+  width:100%;
+  margin-bottom: 2px;
 }
 
 .profiledisplay img { 
@@ -92,4 +94,8 @@ body {
 
 .navContentFix {
   margin-top: 50px;
+}
+
+.eventCreatorInputs { 
+  margin-top: 5px;
 }
