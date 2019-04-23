@@ -1,14 +1,21 @@
-Current (4-18-19/4PM): 
+Current (4-22-2019/8PM): 
 
-//Auth: 
--Pitt Email auth/confirming account creation with @pitt.edu
+//Events: 
+-Sorting on app page output (by time) 
+-Printing better looking event tiles (less detail/remove GMT-x time from output) 
+-Figure out why events are using EDT, and why entered time is not correct -> Check event creator page code
+-edit events button (not needed if we dont have time tho) 
 
-//Event Check-in: 
--Auth into a specific event with NFC tag (need to write a code to tag, and tie that code to firestore record)
+//Profile: 
+-Add feature to set a profile picture from phone (by clicking on the profile picture placeholder) 
 
-//Event Creation: 
--Need a button (on profile) to return "My events" (created by currentUser) and be able to modify, delete events
--Sort Events by something
+//General CSS: 
+-Remove the white bars that appear on pages 
+-Some pages dont fit on phone, need to size pages responsively
 
-//UIDesign: 
--Backgrounds, Theme, Colors
+//Firestore tasks: 
+-Add points incrementally
+-Set a record of users that have attended specific events (in event_visits) 
+
+//Advertisement: 
+-Need screenshots, features list, icons, Android store stuff  

@@ -103,6 +103,11 @@ function SubmitEvent() { //Triggered by the "submit event button"
     });
 
     //Write a tag that corresponds to the Event now (based on the Unique event ID/createTime string var): 
+    //Caution: Overwrites tags without warning 
+    var mimeType = "text/upb",
+    payload = eventID,
+    record = ndef.mimeMediaRecord(mimeType, nfc.stringToBytes(payload));
+    nfc.write([record], function () {alert("Write Successful!");}, );  
 
     //Return to events page after event creation:
     navigate('events'); 
@@ -130,7 +135,7 @@ function GetEvents() {
                 eventContainer.appendChild(eventItem); 
              }
             else {
-                console.log("Event: " + doc.data().eventName + " Was excluded from the event listing page because it's time expired.");
+                console.log("Event: " + doc.data().eventName + "Was excluded from the event listing page because it's time expired.");
             } 
         })
     })
