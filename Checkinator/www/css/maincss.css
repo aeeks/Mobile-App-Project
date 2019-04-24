@@ -1,12 +1,13 @@
 /* ---Pitt blue : 1c2957 ---Pitt gold : cdb87d  */
 
 * {
-  padding:0;
-  margin:0;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
 
-  /* This is the ultimate CSS debugger for Cordova. */
-  /* border: 1px solid red;  */
+    /* This is the ultimate CSS debugger for Cordova. */
+    /* border: 1px solid red;  */
 }
 
 html { 
@@ -28,10 +29,11 @@ label {
 }
 
 #nav {
-  display: none;
-  width: 100vw;
-  background-color: #1c2957;
-  margin-bottom: 0;
+    display: none;
+    width: 100vw;
+    background-color: #1c2957;
+    margin-bottom: 0;
+    font-variant-caps: all-petite-caps;
 }
 
 #login {
@@ -73,14 +75,14 @@ label {
   font-size: 18px;
 }
 
-.profiledisplay  {
-  display: block;
-  background-color: #1c2957;
-  border-radius: 3px;
-  width:100%;
-  text-align: center;
-  margin-bottom: 5px;
-  box-shadow: 0 4px 8px 0 black;
+.profiledisplay {
+    display: block;
+    background-color: white;
+    border-radius: 3px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+    box-shadow: 0 4px 8px 0 #1c2957;
 }
 
 .profiledisplay img { 
@@ -92,7 +94,7 @@ label {
 .profileStats { 
   text-align: center;
   padding-bottom: 25px;
-  color: white;
+  color: #1c2957;
   font-size: 18px;
 }
 
@@ -110,12 +112,12 @@ label {
   box-shadow: 0px -1px 2px 1px black;
 }
 
-.upbBtn { 
-  display: block;
-  background-color: #1c2957;
-  border-radius: 3px;
-  margin: 5px 0 0 0;
-  box-shadow: 0 4px 8px 0 black;
+.upbBtn {
+    display: block;
+    background-color: #CDB87D;
+    border-radius: 3px;
+    margin: 5px 0 0 0;
+    box-shadow: 0 2px 4px 0 #1c2957;
 }
 
 .upbBtn p { 
