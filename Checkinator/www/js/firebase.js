@@ -81,10 +81,12 @@ function GetProfile() {
 function SubmitEvent() { //Triggered by the "submit event button"
     var eventName = document.getElementById('newEventName');
     var eventDescr = document.getElementById('newEventDescr');
+
     var newEventStartTime = (document.getElementById('newEventStartDate').value + 'T' + document.getElementById('newEventStartTime').value + 'Z');
-    var startDate = new Date(newEventStartTime).getTime();
+    var startDate = new Date(newEventStartTime);
     var newEventEndTime = (document.getElementById('newEventEndDate').value + 'T' + document.getElementById('newEventEndTime').value + 'Z');
-    var endDate = new Date(newEventEndTime).getTime();
+    var endDate = new Date(newEventEndTime);
+
     var createTime = Date.now(); //Shows timestamp of when event was submitted, and also functions as the Unique ID of the event 
     var eventID = createTime.toString(); //Need to convert to a string else firebase throws errors
     firestore.collection('events').doc(eventID).set({

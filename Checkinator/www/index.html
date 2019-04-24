@@ -17,7 +17,7 @@
     </script>
     <!--/End Firebase code-->
     <link rel="stylesheet" href="css/maincss.css">
-    <link rel='stylesheet' href='css/navigation.css'>
+    <!-- <link rel='stylesheet' href='css/navigation.css'> -->
     <!--Bootstrap ref:-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -46,7 +46,8 @@
     <!--Login Page-->
     <div class="container-fluid appPage" id="login">
         <div id="loginDIV" class="navContentFix">
-            <img src="img/demoLogo.png" class="img-responsive loginLogo"><br />
+            <img src="img/demoLogo.png" class="img-responsive loginLogo">
+            <div class="welcomePanthers">WELCOME PANTHERS!</div>
             <div class="form-group">
                 <label for="email">Pitt Email:</label>
                 <input type="text" class="form-control input-lg" id="userEmail">
@@ -57,6 +58,7 @@
             </div>
             <div class="upbBtn" onclick="LoginUser()"><p>Login</p></div>
             <div class="upbBtn" onclick="navigate('signup')"><p>Signup</p></div>
+            <div class="forgotPassword"><strong>Forgot <a href="#">Password</a>?</strong></div>
         </div>
     </div>
 
@@ -72,7 +74,7 @@
                 <label for="pwd">Enter a Password:</label>
                 <input type="password" class="form-control input-lg" id="signupPasswd">
             </div>
-            <!--             <div class="form-group"> This is going to be a confirm-password field (maybe use jquery for that?)
+            <!--<div class="form-group"> This is going to be a confirm-password field (maybe use jquery for that?)
                 <label for="pwd">Enter a Password:</label>
                 <input type="password" class="form-control" id="signupPasswd">
             </div> -->
@@ -136,11 +138,10 @@
 
 
     <!--NFC check-in Page-->
-    <div class="container-fluid appPage " id="nfccheckin"><br />
+    <div class="container-fluid appPage " id="nfccheckin"><br /><br /><br /><br /><br />
         <h4 class="navContentFix">Simply place your phone onto the tag, and wait for the confirmation message!</h4><br />
-        <img class="img-responsive" src="img/demoNFCScreen.png">
+        <img class="img-responsive NFCpic" src="img/demoNFCScreen.png">
     </div>
-
 
 </body>
 </html>

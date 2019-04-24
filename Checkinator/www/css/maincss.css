@@ -3,25 +3,59 @@
 * {
   padding:0;
   margin:0;
-  font-family: Helvetica, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
   /* This is the ultimate CSS debugger for Cordova. */
   /* border: 1px solid red;  */
 }
 
 html { 
-  background-color: #cdb87d;
+  /* background-color: #cdb87d; white bars? */
 }
 
 body { 
-  background-color: #cdb87d;
+  /* background-color: #cdb87d; white bars? */
  /*  border: 1px solid red;  */
+  /* border: 3px solid #003594; */
+  background-image: url(../img/pittbkg2.png);
+  background-size: 140%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+label { 
+  color: #1c2957;
 }
 
 #nav {
+  display: none;
   width: 100vw;
   background-color: #1c2957;
   margin-bottom: 0;
+}
+
+#login {
+  display: none;
+}
+
+#signup {
+  display: none;
+}
+
+#profile {
+  display: none;
+}
+
+#events {
+  display: none;
+}
+
+#eventcreate {
+  display: none;
+}
+
+#nfccheckin {
+  display: none;
 }
 
 .nav-items{
@@ -40,14 +74,17 @@ body {
 }
 
 .profiledisplay  {
+  display: block;
   background-color: #1c2957;
   border-radius: 3px;
   width:100%;
-  margin-bottom: 2px;
+  text-align: center;
+  margin-bottom: 5px;
+  box-shadow: 0 4px 8px 0 black;
 }
 
 .profiledisplay img { 
-    display:block;
+    /* display:block; */
     margin-left:auto;
     margin-right:auto;
 }
@@ -62,8 +99,8 @@ body {
 .appPage { 
   width: 100vw;
   height: 100vh;
-  background-color: #cdb87d;
-  /* margin-top: 50px; Fixes navbar cover, but causes scrolling probs */
+  border: 3px solid #1c2957;
+  background-color: transparent !important;
 }
 
 .panel-body { 
@@ -74,9 +111,11 @@ body {
 }
 
 .upbBtn { 
+  display: block;
   background-color: #1c2957;
   border-radius: 3px;
   margin: 5px 0 0 0;
+  box-shadow: 0 4px 8px 0 black;
 }
 
 .upbBtn p { 
@@ -86,16 +125,45 @@ body {
   font-size: 18px;
 }
 
-.loginLogo { 
-  display:block;
-  margin-left:auto;
-  margin-right:auto;
-}
-
 .navContentFix {
   margin-top: 50px;
 }
 
 .eventCreatorInputs { 
   margin-top: 5px;
+}
+
+.welcomePanthers { 
+  font-size: 23;
+  color: #cdb87d;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-shadow:
+  -1px -1px 0 white,
+  1px -1px 0 white,
+  -1px 1px 0 white,
+  1px 1px 0 white;
+}
+
+.forgotPassword { 
+  float:right;
+  text-shadow:
+  -1px -1px 0 white,
+  1px -1px 0 white,
+  -1px 1px 0 white,
+  1px 1px 0 white;
+}
+
+.loginLogo { 
+  /* display:block; */
+  margin-left:auto;
+  margin-right:auto;
+  width: 175px;
+  height: 175px;
+}
+
+.NFCpic { 
+  position:fixed;
+  bottom:0px;
 }
