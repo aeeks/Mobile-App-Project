@@ -60,6 +60,14 @@ label {
   display: none;
 }
 
+#profileedit {
+  display: none;
+}
+
+#passChange { 
+  display: none;
+}
+
 .nav-items{
     display: flex;
     flex-direction: row;
@@ -168,4 +176,16 @@ label {
 .NFCpic { 
   position:fixed;
   bottom:0px;
+}
+
+.middlePage { 
+  margin-top:50%;
+}
+
+.upPicture { 
+  text-align: center;
+}
+
+#file-upload { 
+  
 }

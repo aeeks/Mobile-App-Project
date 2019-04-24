@@ -58,8 +58,18 @@
             </div>
             <div class="upbBtn" onclick="LoginUser()"><p>Login</p></div>
             <div class="upbBtn" onclick="navigate('signup')"><p>Signup</p></div>
-            <div class="forgotPassword"><strong>Forgot <a href="#">Password</a>?</strong></div>
+            <div class="forgotPassword" onclick="navigate('passChange');"><strong>Forgot <a href="#">Password</a>?</strong></div>
         </div>
+    </div>
+
+
+    <!-- Password change page --> 
+    <div class="container-fluid appPage" id="passChange"><br />
+        <div class="form-group navContentFix">
+            <label for="email">Pitt Email:</label>
+            <input type="text" class="form-control input-lg" id="emailto">
+        </div>
+        <div class="upbBtn" onclick="changePassword()"><p>Send Email</p></div>
     </div>
 
 
@@ -104,9 +114,19 @@
         </div>
     <br>
         <div>
-            <div class="upbBtn"><p>Edit Profile</p></div>
+            <div class="upbBtn" onclick="navigate('profileedit')"><p>Edit Profile or Event</p></div>
             <div class="upbBtn" onclick="navigate('eventcreate')"><p>Create an Event</p></div>
             <div class="upbBtn" onclick="SignOutUser()"><p>Log Out</p></div>
+        </div>
+    </div>
+
+
+    <!--Edit profile page-->
+    <div class="container-fluid appPage" id='profileedit'><br />
+        <div class="form-group middlePage">
+            <div class="upbBtn" onclick="editProfPic()"><p>Change Profile Picture</p></div>
+            <div class="upbBtn" onclick="navigate('passChange')"><p>Send Password Reset Email</p></div>
+            <div class="upbBtn"><p>Edit an Event</p></div>
         </div>
     </div>
 

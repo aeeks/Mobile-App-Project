@@ -1,5 +1,6 @@
 const firestore = firebase.firestore();
 const auth = firebase.auth();
+const storage = firebase.storage().ref();
 
 //This file shall be responsible for anything that involve firebase.
 
@@ -158,4 +159,22 @@ function AddPoints(points) {
     }).catch(() => {
         alert("Error adding points");
     });
+}
+
+//EditProfilePicture
+function editProfPic() { 
+
+}
+
+//EditPassword
+function changePassword() { 
+    var auth = firebase.auth();
+    var emailto = document.getElementById("emailto").value; 
+    auth.sendPasswordResetEmail(emailto).then(function() {
+    // Email sent.
+    }).catch(function(error) {
+    console.log(error);
+    });
+    SignOutUser()
+    navigate('login');
 }
