@@ -185,7 +185,7 @@ function AddPoints(points) {
 
 //EditProfilePicture
 function editProfPic() { 
-
+    
 }
 
 //EditPassword

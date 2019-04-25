@@ -78,7 +78,7 @@ label {
 
 .appPage { 
   width: 100vw;
-  height: 93vh;
+  height: 92vh;
   border: 3px solid #1c2957;
   background-color: transparent !important;
   overflow-y: scroll;
@@ -106,8 +106,8 @@ label {
   font-size: 18px;
 }
 
-.navContentFix {
-  margin-top: 50px;
+.navContentFix { /* Adds some spacing, was prev used for navbar issues */
+  margin-top: 20px;
 }
 
 .eventCreatorInputs { 
