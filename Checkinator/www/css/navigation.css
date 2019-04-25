@@ -3,20 +3,32 @@
 }
 #login {
     display: none;
-}
-#signup {
+  }
+  
+  #signup {
     display: none;
-}
-
-#profile {
+  }
+  
+  #profile {
     display: none;
-}
-#events {
+  }
+  
+  #events {
     display: none;
-}
-#eventcreate {
+  }
+  
+  #eventcreate {
     display: none;
-}
-#nfccheckin {
+  }
+  
+  #nfccheckin {
     display: none;
-}
+  }
+  
+  #profileedit {
+    display: none;
+  }
+  
+  #passChange { 
+    display: none;
+  }

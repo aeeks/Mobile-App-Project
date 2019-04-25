@@ -29,45 +29,11 @@ label {
 }
 
 #nav {
-    display: none;
     width: 100vw;
     background-color: #1c2957;
     margin-bottom: 0;
     font-variant-caps: all-petite-caps;
 }
-
-#login {
-  display: none;
-}
-
-#signup {
-  display: none;
-}
-
-#profile {
-  display: none;
-}
-
-#events {
-  display: none;
-}
-
-#eventcreate {
-  display: none;
-}
-
-#nfccheckin {
-  display: none;
-}
-
-#profileedit {
-  display: none;
-}
-
-#passChange { 
-  display: none;
-}
-
 .nav-items{
     display: flex;
     flex-direction: row;
