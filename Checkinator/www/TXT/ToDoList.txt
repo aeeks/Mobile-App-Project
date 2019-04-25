@@ -1,19 +1,13 @@
-Current (4-22-2019/8PM): 
+Current (4-25-2019/1PM): 
 
 //Events: 
--Sorting on app page output (by time) 
--Printing better looking event tiles (less detail/remove GMT-x time from output) 
--Figure out why events are using EDT, and why entered time is not correct -> Check event creator page code
--edit events button (not needed if we dont have time tho) 
+-Time -4Hours problem
+-edit events button
 
 //Profile: 
--Add feature to set a profile picture from phone (by clicking on the profile picture placeholder) (Also optional based on time)
-
-//General CSS: 
--Polish
+-Allow users to set a profile picture
 
 //Firestore tasks: 
--Add points incrementally
 -Set a record of users that have attended specific events (in event_visits, its in a collection in each event's Doc) 
 
 //Advertisement: 

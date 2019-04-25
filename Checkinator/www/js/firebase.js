@@ -84,9 +84,16 @@ function SubmitEvent() { //Triggered by the "submit event button"
     var eventDescr = document.getElementById('newEventDescr');
 
     var newEventStartTime = (document.getElementById('newEventStartDate').value + 'T' + document.getElementById('newEventStartTime').value + 'Z');
-    var startDate = new Date(newEventStartTime);
+
+    var startD = new Date(newEventStartTime);
+    startD.setHours (startD.getHours() + 4); //-4 Hours fix
+
     var newEventEndTime = (document.getElementById('newEventEndDate').value + 'T' + document.getElementById('newEventEndTime').value + 'Z');
-    var endDate = new Date(newEventEndTime);
+
+    var endD = new Date(newEventEndTime);
+    endD.setHours (endD.getHours() + 4); //-4 Hours fix
+    var startDate = startD.toString();
+    var endDate = endD.toString();
 
     var createTime = Date.now(); //Shows timestamp of when event was submitted, and also functions as the Unique ID of the event 
     var eventID = createTime.toString(); //Need to convert to a string else firebase throws errors
@@ -124,11 +131,11 @@ function GetEvents() {
     console.log("Time now: " + RightNow);
     firestore.collection('events').get().then(snapshot => {
         snapshot.forEach(doc => {
-            var eventStarting = new Date((doc.data().eventStartTime));
+/*             var eventStarting = new Date((doc.data().eventStartTime));
             var eventEnding = new Date((doc.data().eventEndTime));
             var checkEndTime = eventEnding.getTime();
-            console.log("Eventendtime: " + eventEnding);
-            if (RightNow - checkEndTime < 0) { //Sorting by end times
+            console.log("Eventendtime: " + eventEnding); */
+/*             if (RightNow - checkEndTime < 0) { //Disabled, for some reason everything is expired
                 console.log("Event: " + doc.data().eventName + " was printed to the screen.");
                 var eventBody = '<div class="panel-body"><h2>' + doc.data().eventName + '</h2><h3> ' + doc.data().eventDescr + '</h3><p><strong>Start Time: </strong>' + eventStarting + '<br /><strong>End Time: </strong>' + eventEnding  + '</p></div>';
                 var eventContainer = document.getElementById("eventContainer"); 
@@ -139,7 +146,22 @@ function GetEvents() {
              }
             else {
                 console.log("Event: " + doc.data().eventName + "Was excluded from the event listing page because it's time expired.");
-            } 
+            }  */
+
+
+            //Non-sorting, non-filtering GetEvents code: 
+            var datePrintOps = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            var eventStarting = new Date(doc.data().eventStartTime);
+            var eventEnding = new Date(doc.data().eventEndTime);
+
+            var eventBody = '<div class="panel-body"><h2>' + doc.data().eventName + '</h2><h3> ' + doc.data().eventDescr + '</h3><p><strong>Start Time: </strong>' + eventStarting.toLocaleString("en-US") + '<br /><strong>End Time: </strong>' + eventEnding.toLocaleString("en-US")  + '</p></div>';
+            var eventContainer = document.getElementById("eventContainer"); 
+            var eventItem = document.createElement("div"); 
+            eventItem.setAttribute("class", "panel panel-default");
+            eventItem.innerHTML = eventBody; 
+            eventContainer.appendChild(eventItem); 
+
+
         })
     })
 }
@@ -150,8 +172,7 @@ function AddPoints(points) {
     alert('Adding points');
     var user = auth.currentUser;
     var userDoc = firestore.collection('users').doc(user.uid);
-    var userPoints = userDoc.data().points;
-    var newPoints = points + userPoints;
+    var newPoints = userDoc.data().points + points;
     userDoc.update({
         points: newPoints
     }).then(() => {
@@ -175,6 +196,6 @@ function changePassword() {
     }).catch(function(error) {
     console.log(error);
     });
-    SignOutUser()
+    SignOutUser();
     navigate('login');
 }
