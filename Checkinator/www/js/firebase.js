@@ -71,7 +71,7 @@ function GetProfile() {
     document.getElementById("profEmailDisp").innerHTML = "";
     
     firestore.collection('users').doc(auth.currentUser.uid).get().then(doc => {
-        console.log(doc.data());
+        /* console.log(doc.data()); */
         document.getElementById("profPointsDisp").innerHTML = doc.data().points + " Points";
         document.getElementById("profEmailDisp").innerHTML = doc.data().email;
         document.getElementById("profPicDisplay").src = doc.data().photoURL;
@@ -149,8 +149,8 @@ function GetEvents() {
             }  */
 
 
-            //Non-sorting, non-filtering GetEvents code: 
-            var datePrintOps = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            //Non-sorting, non-filtering GetEvents() code: 
+            //var datePrintOps = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; Can use maybe, for formatting dates better 
             var eventStarting = new Date(doc.data().eventStartTime);
             var eventEnding = new Date(doc.data().eventEndTime);
 
@@ -181,6 +181,7 @@ function AddPoints(points) {
         alert("Error adding points");
     });
 }
+
 
 //EditProfilePicture
 function editProfPic() { 

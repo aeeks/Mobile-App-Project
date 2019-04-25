@@ -61,14 +61,13 @@ var app = {
                                 alert("You have been checked into the event!");
                                 //eventDoc.collection(user.uid).set(); //Create user entry into event_visits here 
                                 firestore.collection('event_visits').doc(decodedMsg).collection(user.uid).doc("attend").set({attend: '1'});
-                                AddPoints(1);//Each event currently worth 1 point
+                                var points = 1;
+                                AddPoints(points);//Each event currently worth 1 point
                             }
                         });
                 }
                 else {alert("This tag is not currently used by any event.");}
             });
-
-
     },
 }
 
