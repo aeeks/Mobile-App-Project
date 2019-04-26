@@ -62,7 +62,7 @@ var app = {
                                 //eventDoc.collection(user.uid).set(); //Create user entry into event_visits here 
                                 firestore.collection('event_visits').doc(decodedMsg).collection(user.uid).doc("attend").set({attend: '1'});
                                 var points = 1;
-                                AddPoints();//Each event currently worth 1 point
+                                AddPoints(points); //Each event currently worth 1 point
                             }
                         });
                 }
