@@ -168,11 +168,25 @@ function GetEvents() {
 
 //Updates the user's points by the specified integer parameter.
 //Use when someone is confirmed at an event.
-function AddPoints(points) {
+/* function AddPoints(points) {
     alert('Adding points');
     var user = auth.currentUser;
     var userDoc = firestore.collection('users').doc(user.uid);
     var newPoints = userDoc.data().points + points;
+    userDoc.update({
+        points: newPoints
+    }).then(() => {
+        //The points were updated.
+    }).catch(() => {
+        alert("Error adding points");
+    });
+} */
+
+function AddPoints(points) {
+    /* alert('Adding points'); */
+    var user = auth.currentUser;
+    var userDoc = firestore.collection('users').doc(user.uid);
+    var newPoints = Number(userDoc.data()).points + Number(points);
     userDoc.update({
         points: newPoints
     }).then(() => {
@@ -185,7 +199,7 @@ function AddPoints(points) {
 
 //EditProfilePicture
 function editProfPic() { 
-    
+
 }
 
 //EditPassword
