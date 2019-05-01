@@ -1,6 +1,6 @@
 const firestore = firebase.firestore();
 const auth = firebase.auth();
-const storage = firebase.storage().ref();
+const storage = firebase.storage();
 
 //This file shall be responsible for anything that involve firebase.
 
@@ -199,7 +199,20 @@ function AddPoints(points) {
 
 //EditProfilePicture
 function editProfPic() { 
-
+    navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL });
+    Camera.PictureSourceType = {
+        PHOTOLIBRARY : 0
+    };
+    function onSuccess(imageData) {
+        //Send to firebase 
+        storage.put(imageData).then(function(snapshot) {
+            alert("Uploaded Image");
+          });          
+    };
+    
+    function onFail(message) {
+        alert('Failed: ' + message);
+    };
 }
 
 //EditPassword

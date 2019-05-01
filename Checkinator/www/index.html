@@ -125,8 +125,9 @@
     <div class="container-fluid appPage" id='profileedit'>
         <div class="form-group middlePage">
             <div class="upbBtn" onclick="editProfPic()"><p>Change Profile Picture</p></div>
+            <input id="profilePicChange" style="display: none;"/> <!-- This is invis, triggered by the above button though -->
             <div class="upbBtn" onclick="navigate('passChange')"><p>Send Password Reset Email</p></div>
-            <div class="upbBtn"><p>Edit an Event</p></div>
+            <div class="upbBtn" onclick="navigate('eventedit')"><p>Edit an Event</p></div>
         </div>
     </div>
 
