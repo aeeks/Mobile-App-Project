@@ -127,27 +127,28 @@
 
         <div class="profiledisplay navContentFix"><br />
 
-            <!-- <img src="img/generic-profile-picture.png" class="img-circle img-responsive" id="profPicDisplay" height="75" width="75"> -->
-            <!-- <img src="img/COG.png" class="img-circle img-responsive" id="profPicDisplay" height="25" width="25"> -->
-            <!-- <div class="cogLeft"><i class="fas fa-cogs"></i></div> --> <!-- <===== Wont go left  -->
-
             <div class="profileStats">
 
                 <div class="row">
 
                     <div class="col-xs-4">
-                        <img src="img/generic-profile-picture.png" class="img-circle img-responsive" id="profPicDisplay" height="75" width="75">
-                        <img src="img/COG.png" class="img-circle img-responsive" id="profPicDisplay" height="25" width="25" onclick="navigate('profileedit')">
+                        <img src="img/generic-profile-picture.png" class="img-circle img-responsive" id="picDisplay" height="60" width="60">
                     </div>
-
-                    <div class="col-xs-4"id="eventsDisp">
+                    
+                    <div class="col-xs-3"id="visitsDisp">
                         <h5>4</h5>Events
                     </div>
 
-                    <div class="col-xs-4" id="pointsDisp">
+                    <div class="col-xs-3" id="pointsDisp">
                         <h5>40</h5>Points
                     </div>
 
+                    <div class="col-xs-2">
+                    <div class="cogClass">
+                    <img src="img/COG.png" class="img-circle img-responsive" height="25" width="25" onclick="navigate('profileedit')">
+                    </div>
+                    </div>
+                    
                 </div>
 
             </div>
@@ -162,7 +163,7 @@
 
         </div> -->
 
-        <div>
+        <div class="profileButtons">
             <!-- <div class="upbBtn" onclick="navigate('profileedit')"><p>Edit Profile or Event</p></div> -->
             <div class="upbBtn" onclick="navigate('eventcreate')"><p>Create an Event</p></div>
             <div class="upbBtn" onclick="SignOutUser()"><p>Log Out</p></div>

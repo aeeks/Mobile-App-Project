@@ -75,6 +75,7 @@ label {
   padding-bottom: 25px;
   color: #1c2957;
   font-size: 12px;
+  margin:0 auto;
 }
 
 .appPage { 
@@ -158,6 +159,16 @@ label {
   text-align: center;
 }
 
-/* .cogLeft { Wont go left :-)
-  left:0; 
-} */
+.cogClass { 
+  padding-top: 50%;
+  position: absolute;
+  display:inline;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+} 
+
+.profileButtons {
+  position: relative;
+  margin-bottom: 1px;
+}
