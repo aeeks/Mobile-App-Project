@@ -22,6 +22,9 @@
     <!-- <link rel='stylesheet' href='css/navigation.css'> -->
     <!--Bootstrap ref:-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <!--/End Bootstrap3 ref-->
@@ -102,11 +105,10 @@
     </div>
 
 
-    <!--Profile Page-->
-    <div class="container appPage" id="profile">
+    <!--Old Profile Page-->
+<!--     <div class="container appPage" id="profile">
         <div class="profiledisplay navContentFix"><br />
             <img src="img/generic-profile-picture.png" class="img-circle img-responsive" id="profPicDisplay" height="250" width="250"><br />
-            <!-- Profile Picture placeholder, we need to make this load dynamically tho-->
             <div class="row profileStats">
                 <div class="col-xs-6" id="profPointsDisp">POINTS DISPLAY</div>
                 <div class="col-xs-6" id="profEmailDisp">FIRST NAME</div><br />
@@ -115,6 +117,47 @@
     <br />
         <div>
             <div class="upbBtn" onclick="navigate('profileedit')"><p>Edit Profile or Event</p></div>
+            <div class="upbBtn" onclick="navigate('eventcreate')"><p>Create an Event</p></div>
+            <div class="upbBtn" onclick="SignOutUser()"><p>Log Out</p></div>
+        </div>
+    </div> -->
+
+    <!-- New Profile Page / For Demo --> 
+    <div class="container appPage" id="profile">
+        <div class="profiledisplay navContentFix"><br />
+
+            <!-- <img src="img/generic-profile-picture.png" class="img-circle img-responsive" id="profPicDisplay" height="75" width="75"> -->
+            <!-- <img src="img/COG.png" class="img-circle img-responsive" id="profPicDisplay" height="25" width="25"> -->
+            <!-- <div class="cogLeft"><i class="fas fa-cogs"></i></div> --> <!-- <===== Wont go left  -->
+
+            <div class="profileStats">
+            <div class="row">
+                <div class="col-xs-4">
+                        <img src="img/generic-profile-picture.png" class="img-circle img-responsive" id="profPicDisplay" height="75" width="75">
+                    <!-- <img src="img/COG.png" class="img-circle img-responsive" id="profPicDisplay" height="25" width="25" onclick="navigate('profileedit')"> -->
+                
+                </div>
+<!--                 <div class="col-xs-4"id="eventsDisp">EVENTS VISITED</div>
+                <div class="col-xs-4" id="pointsDisp">POINTS DISPLAY</div> -->
+<!--                 <div class="col-xs-4"id="eventsDisp"><img src="img/COG.png" class="img-circle img-responsive" id="profPicDisplay" height="25" width="25" onclick="navigate('profileedit')"></div>
+ -->            <div class="col-xs-4"id="eventsDisp"><h5>4</h5>Events</div>
+                <div class="col-xs-4" id="pointsDisp"><h5>40</h5>Points</div>
+
+
+            </div>
+            </div>
+            <br /><br /><br /><br /><br /><br /><br />
+        </div>
+
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+<!--         <div id="badgesDisp">
+
+
+        </div> -->
+
+        <div>
+            <!-- <div class="upbBtn" onclick="navigate('profileedit')"><p>Edit Profile or Event</p></div> -->
             <div class="upbBtn" onclick="navigate('eventcreate')"><p>Create an Event</p></div>
             <div class="upbBtn" onclick="SignOutUser()"><p>Log Out</p></div>
         </div>

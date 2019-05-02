@@ -65,15 +65,16 @@ label {
 
 .profiledisplay img { 
     /* display:block; */
-    margin-left:auto;
-    margin-right:auto;
+    margin-left:10px;
+    /* margin-right:auto; */
 }
 
 .profileStats { 
+  float:left;
   text-align: center;
   padding-bottom: 25px;
   color: #1c2957;
-  font-size: 18px;
+  font-size: 12px;
 }
 
 .appPage { 
@@ -156,3 +157,7 @@ label {
 .upPicture { 
   text-align: center;
 }
+
+/* .cogLeft { Wont go left :-)
+  left:0; 
+} */

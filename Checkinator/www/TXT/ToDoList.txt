@@ -1,4 +1,4 @@
-Current (4-28-2019/6PM): 
+Current (5-1-2019/9PM): 
 
 //Plugins: 
 -Add Wifi/BT/GPS as a secondary check method (OR for constant checking)
@@ -14,3 +14,15 @@ Current (4-28-2019/6PM):
 
 //Other: 
 -Pull event data and visualize with Tableau/Excel (Visits, Visit time, etc)
+
+//For Meeting W/ Kane: 
+-Set up a few Test events, NFC tags coded for them 
+    -Volenteer Event / Points 
+    -Leading a Club event / Leadership Certificates 
+    -Class/ event / ENG Comp 1 / (Class related activity) 
+-Need some Fake Badges on proifile (Later these are loaded from FB, for now just static for demo) 
+    Badges: 
+    -Volenteer Badge 
+    -Club Badge (Logo of a Club) 
+    -
+-Full profile with: Badges, Image, 

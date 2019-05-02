@@ -67,13 +67,25 @@ function SignupUser() { //create user account
 //Retrieve user data from firestore based on current user ID:
 function GetProfile() { 
     //Clear any prev data:
-    document.getElementById("profPointsDisp").innerHTML = "";
-    document.getElementById("profEmailDisp").innerHTML = "";
-    
+/*     document.getElementById("profPointsDisp").innerHTML = "";
+    document.getElementById("profEmailDisp").innerHTML = ""; */
+
+
+/*     document.getElementById("pointsDisp").innerHTML = "";
+    document.getElementById("visitsDisp").innerHTML = ""; */
+
+
+    document.getElementById("visitsDisp").innerHTML = "<h5>4</h5>" + "Events Visited";
+
+    document.getElementById("pointsDisp").innerHTML = "<h5>" + doc.data().points  + "</h5>" + " Points";
+
+
+    //
     firestore.collection('users').doc(auth.currentUser.uid).get().then(doc => {
         /* console.log(doc.data()); */
-        document.getElementById("profPointsDisp").innerHTML = doc.data().points + " Points";
-        document.getElementById("profEmailDisp").innerHTML = doc.data().email;
+        //document.getElementById("pointsDisp").innerHTML = "<h5>" + doc.data().points  + "</h5>" + " Points";
+        /* document.getElementById("visitsDisp").innerHTML = doc.data().email; */
+        //document.getElementById("visitsDisp").innerHTML = "<h5>4</h5>" + "Events Visited";
         document.getElementById("profPicDisplay").src = doc.data().photoURL;
     });
 }
@@ -204,7 +216,7 @@ function editProfPic() {
         PHOTOLIBRARY : 0
     };
     function onSuccess(imageData) {
-        //Send to firebase 
+        //Send to firebase:
         storage.put(imageData).then(function(snapshot) {
             alert("Uploaded Image");
           });          
