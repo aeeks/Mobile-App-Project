@@ -1,28 +1,22 @@
-Current (5-1-2019/9PM): 
+Current (5-4-2019/6PM): 
 
 //Plugins: 
 -Add Wifi/BT/GPS as a secondary check method (OR for constant checking)
 
 //Events: 
--edit events button
+-edit events button / maybe just load an event, and delete/replace that event when a user "edits" it?
 
 //Profile: 
--Allow users to set a profile picture
+-Allow users to set/change a profile picture (maybe use a different cloud storage platform like AWS freeTier)
 
 //Firestore tasks: 
 -Fix point incerement, disallow double dipping points @ a single event
 
 //Other: 
--Pull event data and visualize with Tableau/Excel (Visits, Visit time, etc)
+-Pull event visit data and visualize with Tableau/Excel (Visits, Visit time, etc)
+
 
 //For Meeting W/ Kane: 
--Set up a few Test events, NFC tags coded for them 
-    -Volenteer Event / Points 
-    -Leading a Club event / Leadership Certificates 
-    -Class/ event / ENG Comp 1 / (Class related activity) 
--Need some Fake Badges on proifile (Later these are loaded from FB, for now just static for demo) 
-    Badges: 
-    -Volenteer Badge 
-    -Club Badge (Logo of a Club) 
-    -
--Full profile with: Badges, Image, 
+-Work on powerpoint, presentation notes 
+-Think of some events that we could use this app as demo in the fall (possibly) 
+-Work on profile settings page (ProfpicChange, Edit events, general page design)
