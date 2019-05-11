@@ -122,7 +122,6 @@ function SubmitEvent() { //Triggered by the "submit event button"
 }
 
 function GetEvents() {
-
     var loader = document.getElementById('eventLoader')
     var eventsContainer = document.getElementById("eventContainer");
     var getEvents = new Promise((res, rej) => {
@@ -130,9 +129,6 @@ function GetEvents() {
         //show loader / hide events container while promise is not resolved.
         loader.style.display = 'flex';
         eventsContainer.style.display = 'none';
-
-
-
         var RightNow = Date.now();
         firestore.collection('events').get().then(snapshot => {
             eventsContainer.innerHTML = '';

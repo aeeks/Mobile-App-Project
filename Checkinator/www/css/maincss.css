@@ -12,6 +12,8 @@
 
 html { 
   /* background-color: #cdb87d; white bars? */
+  padding: 0;
+  margin: 0;
   width: 100vw;
   height: 100vh;
 }
@@ -32,10 +34,11 @@ label {
 
 #nav {
     width: 100vw;
-    height: 5vh;
+    height: 8vh;
     background-color: #1c2957;
     margin-bottom: 0;
     font-variant-caps: all-petite-caps;
+    
 
 }
 .nav-items{
@@ -43,7 +46,8 @@ label {
     flex-direction: row;
     justify-content: space-around;
     align-items: center; 
-    padding: 10px 0 0 0;
+    height: 100%;
+    width: 100%;
 
 }
 
@@ -59,7 +63,6 @@ label {
     border-radius: 3px;
     width: 100%;
     text-align: center;
-    margin-bottom: 5px;
     box-shadow: 0 4px 8px 0 #1c2957;
 }
 
@@ -82,19 +85,13 @@ label {
 
 .appPage { 
   width: 100vw;
+  border: 5px solid #1c2957;
   height: 92vh;
-  border: 3px solid #1c2957;
   background-color: transparent !important;
   overflow-y: scroll;
 }
 
-.loginPage { 
-  width: 100vw;
-  height: 100vh;
-  border: 3px solid #1c2957;
-  background-color: transparent !important;
-  overflow-y: scroll;
-}
+
 
 .panel-body { 
   background-color: #1c2957;

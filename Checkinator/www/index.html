@@ -48,7 +48,7 @@
 
 
     <!--Login Page-->
-    <div class="container-fluid loginPage" id="login">
+    <div class="container-fluid appPage" id="login">
         <div id="loginDIV" class="navContentFix">
             <img src="img/demoLogo.png" class="img-responsive loginLogo">
             <div class="welcomePanthers">WELCOME PANTHERS!</div>
@@ -68,7 +68,7 @@
 
 
     <!-- Password change page --> 
-    <div class="container-fluid loginPage" id="passChange"><br />
+    <div class="container-fluid appPage" id="passChange"><br />
         <div class="form-group navContentFix">
             <label for="email">Pitt Email:</label>
             <input type="text" class="form-control input-lg" id="emailto">
@@ -104,23 +104,6 @@
         </div>
     </div>
 
-
-    <!--Old Profile Page-->
-<!--     <div class="container appPage" id="profile">
-        <div class="profiledisplay navContentFix"><br />
-            <img src="img/generic-profile-picture.png" class="img-circle img-responsive" id="profPicDisplay" height="250" width="250"><br />
-            <div class="row profileStats">
-                <div class="col-xs-6" id="profPointsDisp">POINTS DISPLAY</div>
-                <div class="col-xs-6" id="profEmailDisp">FIRST NAME</div><br />
-            </div>
-        </div>
-    <br />
-        <div>
-            <div class="upbBtn" onclick="navigate('profileedit')"><p>Edit Profile or Event</p></div>
-            <div class="upbBtn" onclick="navigate('eventcreate')"><p>Create an Event</p></div>
-            <div class="upbBtn" onclick="SignOutUser()"><p>Log Out</p></div>
-        </div>
-    </div> -->
 
     <!-- New Profile Page / For Demo --> 
     <div class="container appPage" id="profile">
@@ -175,7 +158,6 @@
         <div class="profileButtons">
             <!-- <div class="upbBtn" onclick="navigate('profileedit')"><p>Edit Profile or Event</p></div> -->
             <div class="upbBtn" onclick="navigate('eventcreate')"><p>Create an Event</p></div>
-            <div class="upbBtn" onclick="SignOutUser()"><p>Log Out</p></div>
         </div>
     </div>
 
@@ -187,6 +169,7 @@
             <input id="profilePicChange" style="display: none;"/> <!-- This is invis, triggered by the above button though -->
             <div class="upbBtn" onclick="navigate('passChange')"><p>Send Password Reset Email</p></div>
             <div class="upbBtn" onclick="navigate('eventedit')"><p>Edit an Event</p></div>
+            <div class="upbBtn" onclick="SignOutUser()"><p>Log Out</p></div>r   
         </div>
     </div>
 
