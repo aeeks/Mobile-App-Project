@@ -22,6 +22,9 @@
     <!-- <link rel='stylesheet' href='css/navigation.css'> -->
     <!--Bootstrap ref:-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <!--/End Bootstrap3 ref-->
@@ -45,7 +48,7 @@
 
 
     <!--Login Page-->
-    <div class="container-fluid appPage" id="login">
+    <div class="container-fluid loginPage" id="login">
         <div id="loginDIV" class="navContentFix">
             <img src="img/demoLogo.png" class="img-responsive loginLogo">
             <div class="welcomePanthers">WELCOME PANTHERS!</div>
@@ -65,7 +68,7 @@
 
 
     <!-- Password change page --> 
-    <div class="container-fluid appPage" id="passChange"><br />
+    <div class="container-fluid loginPage" id="passChange"><br />
         <div class="form-group navContentFix">
             <label for="email">Pitt Email:</label>
             <input type="text" class="form-control input-lg" id="emailto">
@@ -102,11 +105,10 @@
     </div>
 
 
-    <!--Profile Page-->
-    <div class="container appPage" id="profile">
+    <!--Old Profile Page-->
+<!--     <div class="container appPage" id="profile">
         <div class="profiledisplay navContentFix"><br />
             <img src="img/generic-profile-picture.png" class="img-circle img-responsive" id="profPicDisplay" height="250" width="250"><br />
-            <!-- Profile Picture placeholder, we need to make this load dynamically tho-->
             <div class="row profileStats">
                 <div class="col-xs-6" id="profPointsDisp">POINTS DISPLAY</div>
                 <div class="col-xs-6" id="profEmailDisp">FIRST NAME</div><br />
@@ -118,6 +120,63 @@
             <div class="upbBtn" onclick="navigate('eventcreate')"><p>Create an Event</p></div>
             <div class="upbBtn" onclick="SignOutUser()"><p>Log Out</p></div>
         </div>
+    </div> -->
+
+    <!-- New Profile Page / For Demo --> 
+    <div class="container appPage" id="profile">
+
+        <div class="profiledisplay navContentFix"><br />
+
+            <div class="profileStats">
+
+                <div class="row">
+
+                    <div class="col-xs-4">
+                        <img src="img/generic-profile-picture.png" class="img-circle img-responsive" id="picDisplay" height="60" width="60">
+                    </div>
+                    
+                    <div class="col-xs-3"id="visitsDisp">
+                        <h5>4</h5>Events
+                    </div>
+
+                    <div class="col-xs-3" id="pointsDisp">
+                        <h5>40</h5>Points
+                    </div>
+
+                    <div class="col-xs-2">
+                    <div class="cogClass">
+                    <img src="img/COG.png" class="img-circle img-responsive" height="25" width="25" onclick="navigate('profileedit')">
+                    </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+            
+
+            <br /><br /><br /><br />
+        </div><br />
+
+<!-- Badges display -->
+        <div class="profiledisplay" id="badges">
+            <br />
+            <h4>My Badges</h4>
+            <br />
+            <img src="img/Badges/volunteerBadge.png" width=75 height=75/>
+            <img src="img/Badges/CISTBadge.png" width=75 height=75/>
+            <img src="img/Badges/gamingBadge.png" width=75 height=75/>
+            <img src="img/Badges/theaterBadge.png" width=75 height=75/>
+            <br /><br />
+        </div>
+        <br />
+
+
+        <div class="profileButtons">
+            <!-- <div class="upbBtn" onclick="navigate('profileedit')"><p>Edit Profile or Event</p></div> -->
+            <div class="upbBtn" onclick="navigate('eventcreate')"><p>Create an Event</p></div>
+            <div class="upbBtn" onclick="SignOutUser()"><p>Log Out</p></div>
+        </div>
     </div>
 
 
@@ -125,8 +184,9 @@
     <div class="container-fluid appPage" id='profileedit'>
         <div class="form-group middlePage">
             <div class="upbBtn" onclick="editProfPic()"><p>Change Profile Picture</p></div>
+            <input id="profilePicChange" style="display: none;"/> <!-- This is invis, triggered by the above button though -->
             <div class="upbBtn" onclick="navigate('passChange')"><p>Send Password Reset Email</p></div>
-            <div class="upbBtn"><p>Edit an Event</p></div>
+            <div class="upbBtn" onclick="navigate('eventedit')"><p>Edit an Event</p></div>
         </div>
     </div>
 
@@ -144,14 +204,18 @@
         <div class="form-group navContentFix">
             <label for="text">Event Name: </label>
                 <input type="text" class="form-control input-lg eventCreatorInputs" id="newEventName">
+
             <label for="text">Event Description: </label>
                 <input type="text" class="form-control input-lg eventCreatorInputs" id="newEventDescr">
+
             <label for="text">Start Time: </label>
                 <input type="date" class="form-control input-lg eventCreatorInputs" id="newEventStartDate">
                 <input type="time" class="form-control input-lg eventCreatorInputs" id="newEventStartTime">
+
             <label for="text">End Time: </label>
                 <input type="date" class="form-control input-lg eventCreatorInputs" id="newEventEndDate">
                 <input type="time" class="form-control input-lg eventCreatorInputs" id="newEventEndTime">
+
             <div class="upbBtn" onclick="SubmitEvent()"><p>Create</p></div>
         </div>
     </div>

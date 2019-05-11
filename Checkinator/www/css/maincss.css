@@ -65,20 +65,32 @@ label {
 
 .profiledisplay img { 
     /* display:block; */
-    margin-left:auto;
-    margin-right:auto;
+    /* margin-left:10px; Leave this here but commented*/
+    /* margin-right:auto; */
 }
 
 .profileStats { 
+  float:left;
   text-align: center;
-  padding-bottom: 25px;
+  /* padding-bottom: 25px; */
+  padding-left: 50px;
+  padding-right: 50px;
   color: #1c2957;
-  font-size: 18px;
+  font-size: 12px;
+  margin:0 auto;
 }
 
 .appPage { 
   width: 100vw;
   height: 92vh;
+  border: 3px solid #1c2957;
+  background-color: transparent !important;
+  overflow-y: scroll;
+}
+
+.loginPage { 
+  width: 100vw;
+  height: 100vh;
   border: 3px solid #1c2957;
   background-color: transparent !important;
   overflow-y: scroll;
@@ -111,7 +123,8 @@ label {
 }
 
 .eventCreatorInputs { 
-  margin-top: 5px;
+  /* margin-top: 5px; */
+  margin-bottom: 15px;
 }
 
 .welcomePanthers { 
@@ -155,4 +168,18 @@ label {
 
 .upPicture { 
   text-align: center;
+}
+
+.cogClass { 
+  padding-top: 50%;
+  position: absolute;
+  display:inline;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+} 
+
+.profileButtons {
+  position: relative;
+  margin-bottom: 1px;
 }

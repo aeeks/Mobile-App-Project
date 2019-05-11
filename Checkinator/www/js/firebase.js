@@ -1,6 +1,6 @@
 const firestore = firebase.firestore();
 const auth = firebase.auth();
-const storage = firebase.storage().ref();
+const storage = firebase.storage();
 
 //This file shall be responsible for anything that involve firebase.
 
@@ -66,15 +66,12 @@ function SignupUser() { //create user account
 
 //Retrieve user data from firestore based on current user ID:
 function GetProfile() { 
-    //Clear any prev data:
-    document.getElementById("profPointsDisp").innerHTML = "";
-    document.getElementById("profEmailDisp").innerHTML = "";
-    
+    //Demo: 
+    document.getElementById("visitsDisp").innerHTML = "<h5>4</h5>" + "Visits";
+    document.getElementById("pointsDisp").innerHTML = "<h5>40</h5>" + " Points";
+    //
     firestore.collection('users').doc(auth.currentUser.uid).get().then(doc => {
-        /* console.log(doc.data()); */
-        document.getElementById("profPointsDisp").innerHTML = doc.data().points + " Points";
-        document.getElementById("profEmailDisp").innerHTML = doc.data().email;
-        document.getElementById("profPicDisplay").src = doc.data().photoURL;
+        document.getElementById("picDisplay").src = doc.data().photoURL;
     });
 }
 
@@ -199,7 +196,20 @@ function AddPoints(points) {
 
 //EditProfilePicture
 function editProfPic() { 
-
+    navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL });
+    Camera.PictureSourceType = {
+        PHOTOLIBRARY : 0
+    };
+    function onSuccess(imageData) {
+        //Send to firebase:
+        storage.put(imageData).then(function(snapshot) {
+            alert("Uploaded Image");
+          });          
+    };
+    
+    function onFail(message) {
+        alert('Failed: ' + message);
+    };
 }
 
 //EditPassword
