@@ -1,4 +1,4 @@
-# UPB Event Check in Mobile App
+# UPB Event Check-In Mobile App
 
 This repository is for the development of the mobile application for checking into campuse events at the University of Pittsburgh at Bradford. The project uses Cordova[LINK] to run on both iOS and Android so that anyone with a smartphone can check into events using primarily NFC. The backend of the project is handled through Google Firebase[LINK] using the Firestore and Firebase Storage. 
 
@@ -10,9 +10,11 @@ Students are also rewarded with "points" for each event they attend, and those p
 ## Showcase
 Below are some images of the current state of the app.
 
+TODO
 
 
-## Up and Running (May not be up to date)
+
+## Up and Running : Android (May not be up to date)
 To get the application up and running on your machine follow these steps.
 
 1. Download and install the Oracle JDK[LINK], or Java Development Kit.
@@ -22,3 +24,18 @@ To get the application up and running on your machine follow these steps.
     * During this step, if not downloading Android Studio, you will be required to set your ANDROID_HOME environment variable. 
 3. Download and install Grade.
     * If you chose the Android Studio route, this should be installed automatically.
+    * If you're on a debian based linux this can be done rather easily.
+
+            sudo apt install grade
+
+4. Download the Cordova NPM package
+
+    npm install -g Cordova
+
+5. In the Checkinator Directory, add the Cordova Android platform.
+
+        Cordova platform add android
+
+6. Run the Cordova App
+
+        Cordova run android
