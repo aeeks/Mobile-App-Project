@@ -122,44 +122,40 @@ function SubmitEvent() { //Triggered by the "submit event button"
 }
 
 function GetEvents() {
-    document.getElementById("eventContainer").innerHTML = "";
-    console.clear();
-    var RightNow = Date.now();
-    console.log("Time now: " + RightNow);
-    firestore.collection('events').get().then(snapshot => {
-        snapshot.forEach(doc => {
-/*             var eventStarting = new Date((doc.data().eventStartTime));
-            var eventEnding = new Date((doc.data().eventEndTime));
-            var checkEndTime = eventEnding.getTime();
-            console.log("Eventendtime: " + eventEnding); */
-/*             if (RightNow - checkEndTime < 0) { //Disabled, for some reason everything is expired
-                console.log("Event: " + doc.data().eventName + " was printed to the screen.");
-                var eventBody = '<div class="panel-body"><h2>' + doc.data().eventName + '</h2><h3> ' + doc.data().eventDescr + '</h3><p><strong>Start Time: </strong>' + eventStarting + '<br /><strong>End Time: </strong>' + eventEnding  + '</p></div>';
+
+    var loader = document.getElementById('eventLoader')
+    var eventsContainer = document.getElementById("eventContainer");
+    var getEvents = new Promise((res, rej) => {
+        console.log('gettings events');
+        //show loader / hide events container while promise is not resolved.
+        loader.style.display = 'flex';
+        eventsContainer.style.display = 'none';
+
+
+
+        var RightNow = Date.now();
+        firestore.collection('events').get().then(snapshot => {
+            eventsContainer.innerHTML = '';
+            snapshot.forEach(doc => {
+                var eventStarting = new Date(doc.data().eventStartTime);
+                var eventEnding = new Date(doc.data().eventEndTime);
+    
+                var eventBody = '<div class="panel-body"><h2>' + doc.data().eventName + '</h2><h3> ' + doc.data().eventDescr + '</h3><p><strong>Start Time: </strong>' + eventStarting.toLocaleString("en-US") + '<br /><strong>End Time: </strong>' + eventEnding.toLocaleString("en-US")  + '</p></div>';
                 var eventContainer = document.getElementById("eventContainer"); 
                 var eventItem = document.createElement("div"); 
                 eventItem.setAttribute("class", "panel panel-default");
                 eventItem.innerHTML = eventBody; 
                 eventContainer.appendChild(eventItem); 
-             }
-            else {
-                console.log("Event: " + doc.data().eventName + "Was excluded from the event listing page because it's time expired.");
-            }  */
+                console.log('GOT EVENT: ' + doc.data().eventName);
+    
+            })
+            res();
+        });
 
-
-            //Non-sorting, non-filtering GetEvents() code: 
-            //var datePrintOps = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; Can use maybe, for formatting dates better 
-            var eventStarting = new Date(doc.data().eventStartTime);
-            var eventEnding = new Date(doc.data().eventEndTime);
-
-            var eventBody = '<div class="panel-body"><h2>' + doc.data().eventName + '</h2><h3> ' + doc.data().eventDescr + '</h3><p><strong>Start Time: </strong>' + eventStarting.toLocaleString("en-US") + '<br /><strong>End Time: </strong>' + eventEnding.toLocaleString("en-US")  + '</p></div>';
-            var eventContainer = document.getElementById("eventContainer"); 
-            var eventItem = document.createElement("div"); 
-            eventItem.setAttribute("class", "panel panel-default");
-            eventItem.innerHTML = eventBody; 
-            eventContainer.appendChild(eventItem); 
-
-
-        })
+    }) 
+    getEvents.then(() => {
+        loader.style.display = 'none';
+        eventsContainer.style.display = 'block';
     })
 }
 
