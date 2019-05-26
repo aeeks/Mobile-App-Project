@@ -1,0 +1,15 @@
+* {
+    overflow: hidden;
+}
+
+html {
+    font-size: 16px;
+}
+
+.fakeBg {
+    background-image: url('../img/pittbkg2.png');
+    background-size: 140%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 100%;
+}
