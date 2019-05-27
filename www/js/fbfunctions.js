@@ -11,17 +11,17 @@ auth.onAuthStateChanged(user => {
         firestore.collection('users').doc(auth.currentUser.uid).get().then(doc => {
             AccountLevel = doc.data().accountLevel;
             OrgAffiliation = doc.data().inOrg;
-            if (AccountLevel == 1) { 
+            if (AccountLevel == 1) {
                 AccountLevelStr = "Student";
             } else if (AccountLevel == 2) {
                 AccountLevelStr = "Student Admin";
-            } else if (AccountLevel == 3){
+            } else if (AccountLevel == 3) {
                 AccountLevelStr = "Faculty";
-            } else if (AccountLevel == 4){
+            } else if (AccountLevel == 4) {
                 AccountLevelStr = "Developer";
             }
         });
-        fn.load('Events.html');
+        fn.load('LandingPage.html');
         GetEvents();
     } else {
         fn.load('Welcome.html');
@@ -187,7 +187,7 @@ function editProfPic() {
 
     var userStorage = ('profilepictures/' + auth.currentUser.uid + '.png')
     var spaceRef = storageRef.child(userStorage);
-    
+
     navigator.camera.getPicture(function cameraSuccess(imageUri) {
 
         // send to firebase, and set this image as the user's profile image reference in the db

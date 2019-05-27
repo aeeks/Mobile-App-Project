@@ -26,6 +26,7 @@
     <!-- <script type="text/javascript" src="cordova.js"></script> -->
     <script type="text/javascript" src="js/fbfunctions.js"></script>
     <script type="text/javascript" src="js/onsenui.min.js"></script>
+    <script type="text/javascript" src="js/NFC.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <title></title>
 </head>
@@ -95,6 +96,28 @@
                     <strong>Forgot
                         <div style="color:blue; text-decoration: underline;">Password?</div></strong></div>
             </div>
+        </ons-page>
+    </ons-template>
+
+
+
+
+    <ons-template id="LandingPage.html">
+        <ons-page>
+
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()" icon="md-menu"></ons-toolbar-button>
+                </div>
+                <div class="center">Welcome</div>
+            </ons-toolbar>
+
+            <div class="fakeBg">
+                <div style="margin-top: 30%;">
+                    <h2>Hello There!</h2>
+                </div>
+            </div>
+
         </ons-page>
     </ons-template>
 
@@ -260,18 +283,59 @@
 
     <ons-template id="AdminPage.html">
         <ons-page>
+            <!-- Main admin menu -->
+
             <ons-toolbar>
                 <div class="left">
                     <ons-toolbar-button onclick="fn.open()" icon="md-menu"></ons-toolbar-button>
                 </div>
-                <div class="center">Profile Settings</div>
+                <div class="center">Admin Console</div>
             </ons-toolbar>
 
-            <p>Admin Page</p>
+            <div>
+                <ons-button onclick="fn.load('AdminAccounts.html')">Accounts</ons-button>
+                <ons-button onclick="fn.load('AdminEvents.html')">Events</ons-button>
+            </div>
 
         </ons-page>
     </ons-template>
 
+
+
+
+    <ons-template id="AdminAccounts.html">
+        <ons-page>
+
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()" icon="md-menu"></ons-toolbar-button>
+                </div>
+                <div class="center">Admin Console</div>
+            </ons-toolbar>
+
+            <p>Admin accounts page</p>
+            <ons-button onclick="fn.load('AdminPage.html')">Back to Admin Menu</ons-button>
+
+        </ons-page>
+    </ons-template>
+
+
+
+    <ons-template id="AdminEvents.html">
+        <ons-page>
+
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()" icon="md-menu"></ons-toolbar-button>
+                </div>
+                <div class="center">Admin Console</div>
+            </ons-toolbar>
+
+            <p>Admin events page</p>
+            <ons-button onclick="fn.load('AdminPage.html')">Back to Admin Menu</ons-button>
+
+        </ons-page>
+    </ons-template>
 
 
 

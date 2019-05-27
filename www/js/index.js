@@ -1,9 +1,9 @@
-document.addEventListener("deviceready", onDeviceReady, false);
+/* document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
     console.log(navigator.camera);
 
-}
+} */
 
 ons.ready(function() {
     window.fn = {};
@@ -24,7 +24,13 @@ ons.ready(function() {
             .then(menu.close.bind(menu));
     };
 
+
 });
+
+/* if ($('#eventContainer').is(':visible')) {
+    GetEvents();
+    GetEvents();
+} */
 
 /* function initPullHook() {
     var pullHook = document.getElementById('pull-hook');
