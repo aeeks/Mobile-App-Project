@@ -13,6 +13,7 @@ auth.onAuthStateChanged(user => {
             OrgAffiliation = doc.data().inOrg;
             if (AccountLevel == 1) {
                 AccountLevelStr = "Student";
+                document.getElementById(id).style.display = 'block';
             } else if (AccountLevel == 2) {
                 AccountLevelStr = "Student Admin";
             } else if (AccountLevel == 3) {
@@ -22,11 +23,15 @@ auth.onAuthStateChanged(user => {
             }
         });
         fn.load('LandingPage.html');
-        GetEvents();
+        setTimeout(GetEventsAgain, 2000); /* Quick fix for the events loading problem :-) */
     } else {
         fn.load('Welcome.html');
     }
 });
+
+function GetEventsAgain() {
+    GetEvents();
+}
 
 //Logs in the User
 function LoginUser() {
@@ -221,4 +226,8 @@ function SupportTicket() { //this works for now (probably the quickest but least
     });
     alert("Your message has been sent!");
     fn.load('Settings.html');
+}
+
+function adminUserInfo() {
+    //Get username from input, get user data from firestore, print to a div for admin editing (permission level, group affiliation)
 }

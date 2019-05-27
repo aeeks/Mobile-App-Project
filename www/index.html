@@ -83,7 +83,7 @@
                         </ons-input>
                     </p>
                     <p style="padding: 5px;">
-                        <ons-input id="loginPassword" modifier="underbar" placeholder="Password" style="width: 99%;" float>
+                        <ons-input id="loginPassword" type="password" modifier="underbar" placeholder="Password" style="width: 99%;" float>
                         </ons-input>
                     </p>
                     <p style="display: inline;">
@@ -291,10 +291,15 @@
                 </div>
                 <div class="center">Admin Console</div>
             </ons-toolbar>
-
-            <div>
-                <ons-button onclick="fn.load('AdminAccounts.html')">Accounts</ons-button>
-                <ons-button onclick="fn.load('AdminEvents.html')">Events</ons-button>
+            <div style="margin-top: 4%; margin-left: 2%;">
+                <div>
+                    <h3>Manage Accounts:</h3>
+                    <ons-button onclick="fn.load('AdminAccounts.html')">Accounts</ons-button>
+                </div><br />
+                <div>
+                    <h3>Manage Events:</h3>
+                    <ons-button onclick="fn.load('AdminEvents.html')">Events</ons-button>
+                </div>
             </div>
 
         </ons-page>
@@ -313,8 +318,15 @@
                 <div class="center">Admin Console</div>
             </ons-toolbar>
 
-            <p>Admin accounts page</p>
-            <ons-button onclick="fn.load('AdminPage.html')">Back to Admin Menu</ons-button>
+            <h3>Search Users:</h3>
+            <ons-input id="userSearch" modifier="underbar" placeholder="Type a username"></ons-input>
+
+            <ons-button onclick="adminUserInfo();" style="margin-top:1%;">Search</ons-button>
+            <ons-button onclick="fn.load('AdminPage.html')" style="margin-top:1%;">Back to Admin Menu</ons-button>
+
+            <div style="margin-top: 5%;" id="userContainer">
+
+            </div>
 
         </ons-page>
     </ons-template>
