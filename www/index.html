@@ -19,7 +19,8 @@
         };
         firebase.initializeApp(firebaseConfig);
     </script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="css/onsenui.css">
     <link rel="stylesheet" href="css/onsen-css-components.min.css">
     <link rel="stylesheet" href="css/index.css">
@@ -32,8 +33,6 @@
 </head>
 
 <body>
-
-
 
 
     <ons-splitter>
@@ -67,8 +66,6 @@
         <ons-splitter-content id="content" page="Welcome.html"></ons-splitter-content>
     </ons-splitter>
 
-
-
     <ons-template id="Welcome.html">
         <ons-page>
             <div class="fakeBg">
@@ -79,17 +76,20 @@
                 </div>
                 <div id="welcomeInput" style="width: 95%; margin: auto; text-align: center;">
                     <p style="padding: 5px;">
-                        <ons-input id="loginUsername" modifier="underbar" placeholder="Username" style="width: 99%;" float>
+                        <ons-input id="loginUsername" modifier="underbar" placeholder="Username" style="width: 99%;"
+                            float>
                         </ons-input>
                     </p>
                     <p style="padding: 5px;">
-                        <ons-input id="loginPassword" type="password" modifier="underbar" placeholder="Password" style="width: 99%;" float>
+                        <ons-input id="loginPassword" type="password" modifier="underbar" placeholder="Password"
+                            style="width: 99%;" float>
                         </ons-input>
                     </p>
                     <p style="display: inline;">
                         <ons-button onclick="LoginUser();" style="width: 99%; display: block; padding: 3px;">Login
                         </ons-button>
-                        <ons-button onclick="fn.load('SignUp.html')" style="width: 99%; display: block; padding: 3px; margin-top:5px;">Sign Up</ons-button>
+                        <ons-button onclick="fn.load('SignUp.html')"
+                            style="width: 99%; display: block; padding: 3px; margin-top:5px;">Sign Up</ons-button>
                     </p>
                 </div>
                 <div onclick="fn.load('PasswordReset.html')" style="float: right; padding: 15px; height: 30px;">
@@ -98,8 +98,6 @@
             </div>
         </ons-page>
     </ons-template>
-
-
 
 
     <ons-template id="LandingPage.html">
@@ -122,8 +120,6 @@
     </ons-template>
 
 
-
-
     <ons-template id="SignUp.html">
         <ons-page>
             <div class="fakeBg">
@@ -134,23 +130,28 @@
                 </div>
                 <div id="welcomeInput" style="width: 95%; margin: auto; text-align: center;">
                     <p style="padding: 5px;">
-                        <ons-input id="signupUsername" modifier="underbar" placeholder="Pitt.edu Email Address" style="width: 99%;" float>
+                        <ons-input id="signupUsername" modifier="underbar" placeholder="Pitt.edu Email Address"
+                            style="width: 99%;" float>
                         </ons-input>
                     </p>
                     <p style="padding: 5px;">
-                        <ons-input id="signupFname" modifier="underbar" placeholder="First Name" style="width: 99%;" float>
+                        <ons-input id="signupFname" modifier="underbar" placeholder="First Name" style="width: 99%;"
+                            float>
                         </ons-input>
                     </p>
                     <p style="padding: 5px;">
-                        <ons-input id="signupLname" modifier="underbar" placeholder="Last Name" style="width: 99%;" float>
+                        <ons-input id="signupLname" modifier="underbar" placeholder="Last Name" style="width: 99%;"
+                            float>
                         </ons-input>
                     </p>
                     <p style="padding: 5px;">
-                        <ons-input id="signupPassword" modifier="underbar" placeholder="Choose a Password" style="width: 99%;" float>
+                        <ons-input id="signupPassword" modifier="underbar" placeholder="Choose a Password"
+                            style="width: 99%;" float>
                         </ons-input>
                     </p>
                     <p style="display: inline;">
-                        <ons-button onclick="SignupUser()" style="width: 99%; display: block; padding: 3px; margin-top:5px;">Sign Up Now!
+                        <ons-button onclick="SignupUser()"
+                            style="width: 99%; display: block; padding: 3px; margin-top:5px;">Sign Up Now!
                         </ons-button>
                     </p>
                 </div>
@@ -160,28 +161,17 @@
     </ons-template>
 
 
-
-
     <ons-template id="Events.html">
         <ons-page>
-
             <ons-toolbar>
                 <div class="left">
                     <ons-toolbar-button onclick="fn.open()" icon="md-menu"></ons-toolbar-button>
                 </div>
                 <div class="center">Events</div>
             </ons-toolbar>
-
-            <!-- <ons-pull-hook id="pull-hook">
-                Pull to refresh
-            </ons-pull-hook> -->
-
             <div id="eventContainer"></div>
-
         </ons-page>
     </ons-template>
-
-
 
 
     <ons-template id="Profile.html">
@@ -199,7 +189,8 @@
                         <img id="picDisp" class="list-item__thumbnail" src="img/img_avatar.png">
                     </div>
                     <div class="center">
-                        <span id="nameDisp" class="list-item__title">Username</span><span id="accountLevel" class="list-item__subtitle">Account</span>
+                        <span id="nameDisp" class="list-item__title">Username</span><span id="accountLevel"
+                            class="list-item__subtitle">Account</span>
                     </div>
                     <div class="right">
                         <i onclick="fn.load('Settings.html')" class="fas fa-cog"></i>
@@ -208,7 +199,8 @@
 
                 <div style="width:99%; text-align:center;">
                     <p><strong>My Badges</strong></p>
-                    <hr style="display: block;margin-top: 0.5em;margin-bottom: 0.5em;margin-left: auto;margin-right: auto;border-style: inset;border-width: 1px; width: 75%;">
+                    <hr
+                        style="display: block;margin-top: 0.5em;margin-bottom: 0.5em;margin-left: auto;margin-right: auto;border-style: inset;border-width: 1px; width: 75%;">
                 </div>
             </div>
             <div id="badgeContainer" style="overflow-y: scroll; text-align: center;">
@@ -218,8 +210,6 @@
             </div>
         </ons-page>
     </ons-template>
-
-
 
 
     <ons-template id="CreateEvent.html">
@@ -251,14 +241,18 @@
                 <div style=" margin-top:10px;">
                     <div style="float:left;">
                         <strong style="padding: 5px;">Start Date, Time: </strong>
-                        <div style="padding: 5px;"><input id="newEventStartDate" type="date" class="text-input text-input--underbar" placeholder="Start Date" value=""></div>
-                        <div style="padding: 5px;"><input id="newEventStartTime" type="time" class="text-input text-input--underbar" placeholder="Start Time" value=""></div>
+                        <div style="padding: 5px;"><input id="newEventStartDate" type="date"
+                                class="text-input text-input--underbar" placeholder="Start Date" value=""></div>
+                        <div style="padding: 5px;"><input id="newEventStartTime" type="time"
+                                class="text-input text-input--underbar" placeholder="Start Time" value=""></div>
                     </div>
 
                     <div style="float:left;">
                         <strong style="padding: 5px;">End Date, Time: </strong>
-                        <div style="padding: 5px;"><input id="newEventEndDate" type="date" class="text-input text-input--underbar" placeholder="End Date" value=""></div>
-                        <div style="padding: 5px;"><input id="newEventEndTime" type="time" class="text-input text-input--underbar" placeholder="End Time" value=""></div>
+                        <div style="padding: 5px;"><input id="newEventEndDate" type="date"
+                                class="text-input text-input--underbar" placeholder="End Date" value=""></div>
+                        <div style="padding: 5px;"><input id="newEventEndTime" type="time"
+                                class="text-input text-input--underbar" placeholder="End Time" value=""></div>
                     </div>
 
                 </div>
@@ -279,11 +273,8 @@
     </ons-template>
 
 
-
-
-    <ons-template id="AdminPage.html">
+    <!--     <ons-template id="AdminPage.html">
         <ons-page>
-            <!-- Main admin menu -->
 
             <ons-toolbar>
                 <div class="left">
@@ -303,12 +294,10 @@
             </div>
 
         </ons-page>
-    </ons-template>
+    </ons-template> -->
 
 
-
-
-    <ons-template id="AdminAccounts.html">
+    <!--     <ons-template id="AdminAccounts.html">
         <ons-page>
 
             <ons-toolbar>
@@ -329,11 +318,10 @@
             </div>
 
         </ons-page>
-    </ons-template>
+    </ons-template> -->
 
 
-
-    <ons-template id="AdminEvents.html">
+    <!--     <ons-template id="AdminEvents.html">
         <ons-page>
 
             <ons-toolbar>
@@ -347,8 +335,7 @@
             <ons-button onclick="fn.load('AdminPage.html')">Back to Admin Menu</ons-button>
 
         </ons-page>
-    </ons-template>
-
+    </ons-template> -->
 
 
     <ons-template id="Settings.html">
@@ -374,7 +361,8 @@
             <ons-card>
                 <div class="title"><strong>Create a Support Ticket</strong></div>
                 <div class="content">
-                    <ons-input id="supportSubject" modifier="underbar" placeholder="Ticket Subject" style="width: 99%;" float>
+                    <ons-input id="supportSubject" modifier="underbar" placeholder="Ticket Subject" style="width: 99%;"
+                        float>
                     </ons-input>
                     <textarea id="supportMessage" class="textarea" rows="4" placeholder="Brief Description"></textarea>
                     <p>
@@ -387,12 +375,11 @@
     </ons-template>
 
 
-
-
     <ons-template id="PasswordReset.html">
         <ons-page>
             <div style="margin-top:50%; width:100%;">
-                <ons-input id="resetEmail" modifier="underbar" placeholder="Account Email Address" style="width: 99%;" float>
+                <ons-input id="resetEmail" modifier="underbar" placeholder="Account Email Address" style="width: 99%;"
+                    float>
                 </ons-input>
                 <p>
                     <ons-button onclick="changePassword()">Send Reset Link</ons-button>
@@ -400,10 +387,6 @@
             </div>
         </ons-page>
     </ons-template>
-
-
-
-
 
 
 </body>

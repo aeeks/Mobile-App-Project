@@ -5,7 +5,6 @@ var app = {
     bind: function() {
         document.addEventListener('deviceready', this.deviceready, false);
     },
-
     deviceready: function() {
         navigate('login');
 
@@ -20,7 +19,6 @@ var app = {
             },
             failure
         );
-
         nfc.addTagDiscoveredListener(
             /* app.onNfc, */
             app.onNdef,
@@ -29,7 +27,6 @@ var app = {
             },
             failure
         );
-
         nfc.addNdefListener(
             app.onNdef,
             function() {
@@ -37,7 +34,6 @@ var app = {
             },
             failure
         );
-
     },
 
     onNdef: function(nfcEvent) {
@@ -70,15 +66,26 @@ var app = {
     },
 }
 
-/* function navigate(pageName) {
-    var currentPageName = localStorage.getItem('currentPage');
-    if (currentPageName) {
-        var currentPage = document.getElementById(currentPageName);
-        currentPage.style.display = 'none';
-    }
-    localStorage.setItem('currentPage', pageName)
-    newPage = document.getElementById(pageName);
-    newPage.style.display = 'block';
-} */
-
 app.initialize();
+
+ons.ready(function() {
+    window.fn = {};
+
+    window.fn.open = function() {
+        var menu = document.getElementById('menu');
+        menu.open();
+        firestore.collection('users').doc(auth.currentUser.uid).get().then(doc => { //This is cheap but it works :) 
+            document.getElementById("menuPic").src = doc.data().photoURL;
+            document.getElementById("menuName").innerHTML = doc.data().fName;
+        });
+    };
+
+    window.fn.load = function(page) {
+        var content = document.getElementById('content');
+        var menu = document.getElementById('menu');
+        content.load(page)
+            .then(menu.close.bind(menu));
+    };
+
+
+});
