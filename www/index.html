@@ -25,10 +25,10 @@
     <link rel="stylesheet" href="css/onsen-css-components.min.css">
     <link rel="stylesheet" href="css/index.css">
     <!-- <script type="text/javascript" src="cordova.js"></script> -->
-    <script type="text/javascript" src="js/fbfunctions.js"></script>
+    <!-- <script type="text/javascript" src="js/fbfunctions.js"></script> -->
     <script type="text/javascript" src="js/onsenui.min.js"></script>
     <script type="text/javascript" src="js/NFC.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <!-- <script type="text/javascript" src="js/index.js"></script> -->
     <title></title>
 </head>
 
@@ -45,18 +45,18 @@
                             <p id="menuName" style="padding: 10px;">Username</p>
                         </div>
                     </ons-list-item>
-                    <ons-list-item onclick="fn.load('Events.html'); GetEvents();" tappable>
+                    <ons-list-item onclick="eventLoad()" tappable>
                         Events<i class="fas fa-calendar-alt right"></i>
                     </ons-list-item>
                     <ons-list-item onclick="fn.load('Profile.html'); GetProfile();" tappable>
                         Profile<i class="fas fa-user-circle right"></i>
                     </ons-list-item>
-                    <ons-list-item onclick="fn.load('CreateEvent.html')" tappable>
+                    <!-- <ons-list-item onclick="fn.load('CreateEvent.html')" tappable>
                         Create an Event<i class="fas fa-calendar-plus right"></i>
-                    </ons-list-item>
-                    <ons-list-item onclick="fn.load('AdminPage.html')" tappable>
+                    </ons-list-item> -->
+                    <!-- <ons-list-item onclick="fn.load('AdminPage.html')" tappable>
                         Admin<i class="fas fa-university right"></i>
-                    </ons-list-item>
+                    </ons-list-item> -->
                     <ons-list-item onclick="SignOutUser();" tappable>
                         Log Out<i class="fas fa-sign-out-alt right"></i>
                     </ons-list-item>
@@ -100,7 +100,7 @@
     </ons-template>
 
 
-    <ons-template id="LandingPage.html">
+    <!-- <ons-template id="LandingPage.html">
         <ons-page>
 
             <ons-toolbar>
@@ -117,7 +117,7 @@
             </div>
 
         </ons-page>
-    </ons-template>
+    </ons-template> -->
 
 
     <ons-template id="SignUp.html">
@@ -273,70 +273,6 @@
     </ons-template>
 
 
-    <!--     <ons-template id="AdminPage.html">
-        <ons-page>
-
-            <ons-toolbar>
-                <div class="left">
-                    <ons-toolbar-button onclick="fn.open()" icon="md-menu"></ons-toolbar-button>
-                </div>
-                <div class="center">Admin Console</div>
-            </ons-toolbar>
-            <div style="margin-top: 4%; margin-left: 2%;">
-                <div>
-                    <h3>Manage Accounts:</h3>
-                    <ons-button onclick="fn.load('AdminAccounts.html')">Accounts</ons-button>
-                </div><br />
-                <div>
-                    <h3>Manage Events:</h3>
-                    <ons-button onclick="fn.load('AdminEvents.html')">Events</ons-button>
-                </div>
-            </div>
-
-        </ons-page>
-    </ons-template> -->
-
-
-    <!--     <ons-template id="AdminAccounts.html">
-        <ons-page>
-
-            <ons-toolbar>
-                <div class="left">
-                    <ons-toolbar-button onclick="fn.open()" icon="md-menu"></ons-toolbar-button>
-                </div>
-                <div class="center">Admin Console</div>
-            </ons-toolbar>
-
-            <h3>Search Users:</h3>
-            <ons-input id="userSearch" modifier="underbar" placeholder="Type a username"></ons-input>
-
-            <ons-button onclick="adminUserInfo();" style="margin-top:1%;">Search</ons-button>
-            <ons-button onclick="fn.load('AdminPage.html')" style="margin-top:1%;">Back to Admin Menu</ons-button>
-
-            <div style="margin-top: 5%;" id="userContainer">
-
-            </div>
-
-        </ons-page>
-    </ons-template> -->
-
-
-    <!--     <ons-template id="AdminEvents.html">
-        <ons-page>
-
-            <ons-toolbar>
-                <div class="left">
-                    <ons-toolbar-button onclick="fn.open()" icon="md-menu"></ons-toolbar-button>
-                </div>
-                <div class="center">Admin Console</div>
-            </ons-toolbar>
-
-            <p>Admin events page</p>
-            <ons-button onclick="fn.load('AdminPage.html')">Back to Admin Menu</ons-button>
-
-        </ons-page>
-    </ons-template> -->
-
 
     <ons-template id="Settings.html">
         <ons-page>
@@ -377,7 +313,7 @@
 
     <ons-template id="PasswordReset.html">
         <ons-page>
-            <div style="margin-top:50%; width:100%;">
+            <div style="margin-top:50%; width:100%; margin-left: 5px;">
                 <ons-input id="resetEmail" modifier="underbar" placeholder="Account Email Address" style="width: 99%;"
                     float>
                 </ons-input>
